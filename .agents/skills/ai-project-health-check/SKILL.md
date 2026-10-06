@@ -68,6 +68,13 @@ Produce a health report:
 - **Recommendations** (prioritized)
 - No automatic refactoring — report only
 
+### 10. Codebase Graph (Optional)
+If a codebase graph is available (see `ai-codebase-graph` skill):
+- Use graph to identify high-coupling hotspots (highly connected nodes)
+- Use graph `imports` links to verify dependency rule compliance
+- Use graph `inherits` links to map class hierarchy depth
+- Note: dead-code / unused-component detection is NOT supported by the graph alone
+
 ## Rules
 - This is a **read-only analysis**. Do not modify code.
 - Report findings. Let the user prioritize actions.

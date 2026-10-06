@@ -53,6 +53,16 @@ Produce a structured report with:
 - Affected files
 - Recommended actions (with approval gates for major changes)
 
+## Codebase Graph (Optional)
+
+If a codebase graph is available (see `ai-codebase-graph` skill), use it to:
+- Detect dependency rule violations and circular dependencies automatically
+- Identify "god nodes" (highly coupled components)
+- Trace transitive dependency chains
+- Verify architecture boundaries
+
+The graph supplements but does not replace manual inspection.
+
 ## Rules
 - This skill is **analysis only**. Do not refactor during analysis.
 - Report first. Let the user decide what to act on.

@@ -15,7 +15,8 @@ description: Guides safe creation, extension, and integration of Core components
 1. Read `.ai/project/CORE-CONFIGURATION.md` — current inventory.
 2. Read `.ai/project/DESIGN-SYSTEM.md` — existing tokens.
 3. Identify ALL consumers of the component being changed.
-4. Assess impact scope.
+4. **Graph check** (optional) — If a codebase graph is available (see `ai-codebase-graph` skill), use it to find all consumers and verify that Core does not import from features.
+5. Assess impact scope.
 
 ## Decision Framework
 When a reusable pattern is identified:

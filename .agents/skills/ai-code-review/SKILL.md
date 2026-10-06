@@ -35,6 +35,12 @@ description: Guides code review for Waheed Flutter project changes. Use after im
 - [ ] RTL layout correct
 - [ ] Figma compared (if available)
 
+### Codebase Graph (Optional)
+If a codebase graph is available (see `ai-codebase-graph` skill):
+- [ ] All files importing modified components were checked for needed updates
+- [ ] No unintended new coupling introduced
+- [ ] Change scope is complete (no missed importers/references)
+
 ### Safety
 - [ ] No secrets committed
 - [ ] No unintended Core modifications

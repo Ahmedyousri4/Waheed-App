@@ -13,12 +13,13 @@ description: Guides implementing new Flutter features within the Waheed project 
 
 ## Implementation Flow
 1. **Understand** — Clarify requirements. Identify affected areas.
-2. **Plan** — Define files to create/modify. Identify Core reuse opportunities.
-3. **Inspect** — Read only the files you will touch or depend on.
-4. **Implement** — Follow existing patterns (ValueNotifier, AppColors, etc.).
-5. **Validate** — Run the app, verify behavior, check static analysis.
-6. **Review** — Inspect diff. Confirm no unintended changes.
-7. **Update state** — Update checkpoint.
+2. **Graph check** (optional) — If a codebase graph is available (see `ai-codebase-graph` skill), query it to discover reusable components, map dependencies, and estimate change scope.
+3. **Plan** — Define files to create/modify. Identify Core reuse opportunities.
+4. **Inspect** — Read only the files you will touch or depend on.
+5. **Implement** — Follow existing patterns (ValueNotifier, AppColors, etc.).
+6. **Validate** — Run the app, verify behavior, check static analysis.
+7. **Review** — Inspect diff. Confirm no unintended changes.
+8. **Update state** — Update checkpoint.
 
 ## Rules
 - Place new screens under `lib/features/<feature_name>/`.

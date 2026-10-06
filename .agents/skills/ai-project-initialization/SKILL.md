@@ -18,9 +18,10 @@ description: Bootstraps the AI Engineering System for a new or existing Flutter 
 6. Detect testing setup.
 7. Detect existing Skills/Rules/MCPs.
 8. Detect Git state.
-9. Create/update `.ai/project/` documentation.
-10. Create missing focused Skills.
-11. Generate Bootstrap Report.
+9. **Graph check** (optional) — If Graphify is available, run `graphify extract <project-path> --code-only` to generate a structural codebase graph for rapid architecture understanding. See `ai-codebase-graph` skill.
+10. Create/update `.ai/project/` documentation.
+11. Create missing focused Skills.
+12. Generate Bootstrap Report.
 
 ## Rules
 - Do NOT modify existing code.
