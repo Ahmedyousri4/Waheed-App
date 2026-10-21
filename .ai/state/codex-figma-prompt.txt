@@ -1,0 +1,9 @@
+You have a Figma MCP server configured. Use the Figma MCP tools to verify the connection and inspect a specific Figma node.
+
+STEP 1: Use the Figma MCP to retrieve file metadata for file key OwhGcfZwmermbcH2L8rfUD. Report the file name to confirm access works.
+
+STEP 2: Confirm node 3526:5447 exists by retrieving its basic info such as name and type.
+
+STEP 3: Report the file name, whether the connection succeeded, the node name, and the node type.
+
+This is READ-ONLY. Do NOT modify any files or the Figma design.

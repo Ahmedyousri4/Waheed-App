@@ -197,10 +197,11 @@ class _DashedBorderPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = strokeWidth
-      ..style = PaintingStyle.stroke;
+    final paint =
+        Paint()
+          ..color = color
+          ..strokeWidth = strokeWidth
+          ..style = PaintingStyle.stroke;
 
     final rrect = RRect.fromRectAndRadius(
       Rect.fromLTWH(0, 0, size.width, size.height),
@@ -214,10 +215,7 @@ class _DashedBorderPainter extends CustomPainter {
       double distance = 0;
       while (distance < metric.length) {
         final end = (distance + dashWidth).clamp(0, metric.length);
-        canvas.drawPath(
-          metric.extractPath(distance, end.toDouble()),
-          paint,
-        );
+        canvas.drawPath(metric.extractPath(distance, end.toDouble()), paint);
         distance += dashWidth + dashGap;
       }
     }

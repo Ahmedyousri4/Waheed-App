@@ -108,8 +108,10 @@ class ReceivingMethodCard extends StatelessWidget {
                 // "مجاناً" badge (only on pickup card when selected)
                 if (showFreeBadge && isSelected)
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
                     decoration: BoxDecoration(
                       color: const Color(0xFFF5EDD8),
                       borderRadius: BorderRadius.circular(8),
@@ -155,7 +157,10 @@ class ReceivingMethodCard extends StatelessWidget {
                   fontSize: 13,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'Inter',
-                  color: isSelected ? AppColors.textPrimary : AppColors.textPrimary,
+                  color:
+                      isSelected
+                          ? AppColors.textPrimary
+                          : AppColors.textPrimary,
                 ),
               ),
             ),

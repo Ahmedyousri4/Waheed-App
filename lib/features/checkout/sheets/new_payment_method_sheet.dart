@@ -33,8 +33,7 @@ class _NewPaymentMethodSheet extends StatefulWidget {
   const _NewPaymentMethodSheet();
 
   @override
-  State<_NewPaymentMethodSheet> createState() =>
-      _NewPaymentMethodSheetState();
+  State<_NewPaymentMethodSheet> createState() => _NewPaymentMethodSheetState();
 }
 
 class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
@@ -129,10 +128,7 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
                     keyboardType: TextInputType.number,
                     inputFormatters: [CardNumberFormatter()],
                     prefixIcon: const Padding(
-                      padding: EdgeInsetsDirectional.only(
-                        start: 12,
-                        end: 8,
-                      ),
+                      padding: EdgeInsetsDirectional.only(start: 12, end: 8),
                       child: AppImage(
                         image: 'card.svg',
                         height: 20,
@@ -163,8 +159,11 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
                                 FilteringTextInputFormatter.digitsOnly,
                                 LengthLimitingTextInputFormatter(4),
                               ],
-                              validator: (v) =>
-                                  validateCvv(v, _cardNumberController.text),
+                              validator:
+                                  (v) => validateCvv(
+                                    v,
+                                    _cardNumberController.text,
+                                  ),
                             ),
                           ],
                         ),
@@ -192,8 +191,8 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
 
                   // ── Save-for-future checkbox ──
                   GestureDetector(
-                    onTap: () =>
-                        setState(() => _saveForFuture = !_saveForFuture),
+                    onTap:
+                        () => setState(() => _saveForFuture = !_saveForFuture),
                     child: Row(
                       children: [
                         AnimatedContainer(
@@ -201,24 +200,27 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
                           height: 22,
                           width: 22,
                           decoration: BoxDecoration(
-                            color: _saveForFuture
-                                ? AppColors.black
-                                : Colors.transparent,
+                            color:
+                                _saveForFuture
+                                    ? AppColors.black
+                                    : Colors.transparent,
                             borderRadius: BorderRadius.circular(6),
                             border: Border.all(
-                              color: _saveForFuture
-                                  ? AppColors.black
-                                  : AppColors.divider,
+                              color:
+                                  _saveForFuture
+                                      ? AppColors.black
+                                      : AppColors.divider,
                               width: 1.5,
                             ),
                           ),
-                          child: _saveForFuture
-                              ? const Icon(
-                                  Icons.check,
-                                  size: 14,
-                                  color: Colors.white,
-                                )
-                              : null,
+                          child:
+                              _saveForFuture
+                                  ? const Icon(
+                                    Icons.check,
+                                    size: 14,
+                                    color: Colors.white,
+                                  )
+                                  : null,
                         ),
                         const SizedBox(width: 10),
                         const Expanded(

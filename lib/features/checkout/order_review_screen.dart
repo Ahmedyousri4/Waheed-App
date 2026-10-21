@@ -12,6 +12,7 @@ import 'package:waheed/features/checkout/widgets/delivery_method_section.dart';
 import 'package:waheed/features/checkout/widgets/payment_method_section.dart';
 import 'package:waheed/features/checkout/widgets/pickup_details_section.dart';
 import 'package:waheed/features/checkout/widgets/receiving_method_section.dart';
+import 'package:waheed/features/checkout/success_screen.dart';
 
 /// Data bundle passed from Checkout → Order Review.
 class OrderReviewArgs {
@@ -84,24 +85,23 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
     setState(() => _isSubmitting = true);
 
     // TODO: Replace with real order repository / use-case call.
+    // The order number and delivery estimate below should come from
+    // the actual API response when the backend is integrated.
     Future.delayed(const Duration(seconds: 2), () {
       if (!mounted) return;
       setState(() => _isSubmitting = false);
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text(
-            'تم تأكيد الطلب بنجاح',
-            textAlign: TextAlign.center,
-          ),
-          backgroundColor: const Color(0xE545AA7B),
-          behavior: SnackBarBehavior.floating,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder:
+              (_) => const SuccessScreen(
+                // TODO: Replace with real order number from API response.
+                orderNumber: 'EQ-000000',
+                deliveryEstimate: '٣–٥ أيام عمل',
+              ),
         ),
       );
-
-      Navigator.pop(context, true);
     });
   }
 
@@ -124,9 +124,7 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // 1. Receiving method (read-only)
-                  _ReviewReceivingMethod(
-                    receivingMethod: args.receivingMethod,
-                  ),
+                  _ReviewReceivingMethod(receivingMethod: args.receivingMethod),
                   const SizedBox(height: 20),
 
                   // 2a. Delivery address (home delivery)
@@ -150,9 +148,10 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
                   // 3. Order summary (expandable)
                   _ReviewOrderSummary(
                     isExpanded: _isSummaryExpanded,
-                    onToggle: () => setState(
-                      () => _isSummaryExpanded = !_isSummaryExpanded,
-                    ),
+                    onToggle:
+                        () => setState(
+                          () => _isSummaryExpanded = !_isSummaryExpanded,
+                        ),
                     subtotal: args.subtotal,
                     deliveryFee: args.deliveryFee,
                     discount: args.discount,
@@ -219,10 +218,7 @@ class _ReviewReceivingMethod extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CheckoutSectionHeader(
-          icon: 'truck.svg',
-          title: 'طريقة الاستلام',
-        ),
+        const CheckoutSectionHeader(icon: 'truck.svg', title: 'طريقة الاستلام'),
         const SizedBox(height: 14),
         Row(
           children: [
@@ -231,8 +227,7 @@ class _ReviewReceivingMethod extends StatelessWidget {
                 icon: 'truck.svg',
                 title: 'توصيل للمنزل',
                 subtitle: '٣-٧ أيام',
-                isSelected:
-                    receivingMethod == ReceivingMethod.deliveryToHome,
+                isSelected: receivingMethod == ReceivingMethod.deliveryToHome,
               ),
             ),
             const SizedBox(width: 12),
@@ -241,8 +236,7 @@ class _ReviewReceivingMethod extends StatelessWidget {
                 icon: 'location.svg',
                 title: 'استلام من الفرع',
                 subtitle: 'جاهز خلال ٣ أيام',
-                isSelected:
-                    receivingMethod == ReceivingMethod.pickupFromBranch,
+                isSelected: receivingMethod == ReceivingMethod.pickupFromBranch,
                 showFreeBadge: true,
               ),
             ),
@@ -473,9 +467,10 @@ class _ReviewOrderSummary extends StatelessWidget {
           // ── Expanded content ──
           AnimatedCrossFade(
             duration: const Duration(milliseconds: 250),
-            crossFadeState: isExpanded
-                ? CrossFadeState.showFirst
-                : CrossFadeState.showSecond,
+            crossFadeState:
+                isExpanded
+                    ? CrossFadeState.showFirst
+                    : CrossFadeState.showSecond,
             firstChild: _buildExpandedContent(context),
             secondChild: const SizedBox.shrink(),
           ),
@@ -493,67 +488,65 @@ class _ReviewOrderSummary extends StatelessWidget {
           child: Column(
             children: [
               // ── Cart items ──
-              ...cartItems.map(
-                (item) {
-                  final qty = item['quantity'] as int;
-                  final price = (item['price'] as num).toDouble();
-                  final lineTotal = price * qty;
-                  final name = (item['title'] ?? item['name'] ?? '') as String;
+              ...cartItems.map((item) {
+                final qty = item['quantity'] as int;
+                final price = (item['price'] as num).toDouble();
+                final lineTotal = price * qty;
+                final name = (item['title'] ?? item['name'] ?? '') as String;
 
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Row(
-                      children: [
-                        // Line total
-                        Text(
-                          '${lineTotal.toStringAsFixed(0)} ج.م',
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Row(
+                    children: [
+                      // Line total
+                      Text(
+                        '${lineTotal.toStringAsFixed(0)} ج.م',
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Inter',
+                          color: Colors.black,
+                        ),
+                      ),
+                      const Spacer(),
+                      // Quantity badge
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 2,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppColors.surfaceLight,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(
+                          'x$qty',
                           style: const TextStyle(
-                            fontSize: 13,
+                            fontSize: 11,
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Inter',
-                            color: Colors.black,
+                            color: AppColors.textSecondary,
                           ),
                         ),
-                        const Spacer(),
-                        // Quantity badge
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 2,
+                      ),
+                      const SizedBox(width: 8),
+                      // Name
+                      Flexible(
+                        child: Text(
+                          name,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'Inter',
+                            color: AppColors.textPrimary,
                           ),
-                          decoration: BoxDecoration(
-                            color: AppColors.surfaceLight,
-                            borderRadius: BorderRadius.circular(6),
-                          ),
-                          child: Text(
-                            'x$qty',
-                            style: const TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w600,
-                              fontFamily: 'Inter',
-                              color: AppColors.textSecondary,
-                            ),
-                          ),
+                          textAlign: TextAlign.end,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        const SizedBox(width: 8),
-                        // Name
-                        Flexible(
-                          child: Text(
-                            name,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              fontFamily: 'Inter',
-                              color: AppColors.textPrimary,
-                            ),
-                            textAlign: TextAlign.end,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
 
               const SizedBox(height: 8),
 
@@ -588,9 +581,10 @@ class _ReviewOrderSummary extends StatelessWidget {
               const SizedBox(height: 8),
               _SummaryRow(
                 label: 'التوصيل',
-                value: deliveryFee > 0
-                    ? '${deliveryFee.toStringAsFixed(0)} ج.م'
-                    : 'مجاناً',
+                value:
+                    deliveryFee > 0
+                        ? '${deliveryFee.toStringAsFixed(0)} ج.م'
+                        : 'مجاناً',
               ),
               const SizedBox(height: 8),
               _SummaryRow(
@@ -712,31 +706,33 @@ class _ReviewBottomBar extends StatelessWidget {
                 ),
                 elevation: 0,
               ),
-              icon: isSubmitting
-                  ? const SizedBox.shrink()
-                  : const Icon(
-                      Icons.check_circle_outline,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-              label: isSubmitting
-                  ? const SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
+              icon:
+                  isSubmitting
+                      ? const SizedBox.shrink()
+                      : const Icon(
+                        Icons.check_circle_outline,
                         color: Colors.white,
+                        size: 20,
                       ),
-                    )
-                  : const Text(
-                      'تأكيد الطلب',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Inter',
-                        color: Colors.white,
+              label:
+                  isSubmitting
+                      ? const SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: Colors.white,
+                        ),
+                      )
+                      : const Text(
+                        'تأكيد الطلب',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'Inter',
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
             ),
           ),
           const SizedBox(width: 16),

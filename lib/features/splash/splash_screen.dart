@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:waheed/core/widgets/app_image.dart';
-import 'package:waheed/features/home/home_screen.dart';
+import 'package:waheed/features/auth/get_started_screen.dart';
 
-/// Splash screen shown for 3 seconds before navigating to home.
+/// Splash screen shown for 3 seconds before navigating to Get Started.
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => const HomeScreen()),
+          MaterialPageRoute(builder: (_) => const GetStartedScreen()),
         );
       }
     });

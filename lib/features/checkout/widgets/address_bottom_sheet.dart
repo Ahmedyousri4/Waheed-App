@@ -69,11 +69,7 @@ class AddressBottomSheet extends StatelessWidget {
           // ── Section title ──
           Row(
             children: [
-              const AppImage(
-                image: 'location.svg',
-                height: 20,
-                width: 20,
-              ),
+              const AppImage(image: 'location.svg', height: 20, width: 20),
               const SizedBox(width: 8),
               const Text(
                 'عنوان التوصيل',
@@ -102,9 +98,10 @@ class AddressBottomSheet extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: currentAddress != null
-                  ? () => Navigator.pop(context, currentAddress)
-                  : null,
+              onPressed:
+                  currentAddress != null
+                      ? () => Navigator.pop(context, currentAddress)
+                      : null,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.black,
                 disabledBackgroundColor: AppColors.black.withValues(alpha: 0.3),
@@ -273,10 +270,11 @@ class _DashedBorderPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = strokeWidth
-      ..style = PaintingStyle.stroke;
+    final paint =
+        Paint()
+          ..color = color
+          ..strokeWidth = strokeWidth
+          ..style = PaintingStyle.stroke;
 
     final rrect = RRect.fromRectAndRadius(
       Rect.fromLTWH(0, 0, size.width, size.height),
@@ -290,10 +288,7 @@ class _DashedBorderPainter extends CustomPainter {
       double distance = 0;
       while (distance < metric.length) {
         final end = (distance + dashWidth).clamp(0, metric.length);
-        canvas.drawPath(
-          metric.extractPath(distance, end.toDouble()),
-          paint,
-        );
+        canvas.drawPath(metric.extractPath(distance, end.toDouble()), paint);
         distance += dashWidth + dashGap;
       }
     }

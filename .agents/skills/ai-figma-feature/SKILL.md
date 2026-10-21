@@ -1,164 +1,97 @@
 ---
 name: ai-figma-feature
-description: Guides Figma-driven feature implementation using Figma MCP as UI source of truth. Use when building or validating screens against Figma designs.
+description: Automatically inspect and document Figma URLs, nodes, screens, frames, components, and designs with the configured Figma MCP. Also use when implementing or validating a Figma design, only when implementation is explicitly requested.
 ---
 
-# Figma Feature Skill
+# Figma Analysis and Specification Workflow
 
-## Prerequisites
-- Figma MCP must be configured and connected.
-- If Figma MCP is not available, inform the user and fall back to manual
-  design specs or screenshots.
+## Automatic trigger and default mode
 
-## Before Starting
-1. Read `.ai/project/DESIGN-SYSTEM.md` — know existing tokens and core widgets.
-2. Read `.ai/project/CORE-CONFIGURATION.md` — know reusable components.
-3. Confirm Figma MCP connectivity.
+Activate this skill whenever the user provides a Figma URL (including a node URL), or asks to analyze, inspect, document, implement, or validate a Figma screen, frame, component, or design. A Figma URL alone is sufficient to start analysis and update the relevant existing specifications; do not ask the user to repeat this workflow in a detailed prompt.
 
-## Resource Routing — Figma → Codex → Figma MCP
+**Default work is read-only design inspection plus project specification maintenance.** A Figma link does not authorize Flutter implementation, navigation changes, asset downloads, dependency/configuration edits, or edits to Figma. Implement only when the user explicitly asks for implementation or approves a separate implementation plan.
 
-### Roles
-- **Antigravity** (orchestrator): owns implementation planning, architecture
-  decisions, Core/design-system mapping, validation, and final approval.
-- **Codex** (Figma MCP worker): uses the Figma MCP connection currently verified
-  through Codex CLI. All Figma data retrieval is routed through Codex.
+## Intake and project context
 
-### Input Requirements
-1. A Figma implementation task must include the Figma file URL. If it is
-   missing, ask the user for it.
-2. When a specific screen, frame, or component is targeted, require its exact
-   node ID. If the target is missing or ambiguous, ask the user to identify it.
-3. If the URL contains a `node-id` query parameter, extract and preserve it.
-   Normalize hyphen-separated IDs to Figma's colon form (for example,
-   `549-8455` becomes `549:8455`). Do not guess or substitute a node ID.
+1. Extract the file key and exact node ID from the URL. Normalize a query such as node-id=549-8382 to 549:8382. For branch links, use the branch file key indicated by the URL. Preserve the original URL and node ID in the specification.
+2. If the URL has no node ID, use the Figma metadata tool to list pages/top-level frames and identify a target only when the user’s wording and available project context make it unambiguous. Never guess a node ID. Ask one concise question only when the target remains essential and ambiguous.
+3. Read the relevant existing screen specification first, then only the relevant shared files in .ai/project/figma-specs/: SCREEN-01-GET-STARTED.md, SCREEN-02-LOGIN.md, DESIGN-TOKENS.md, ASSET-INVENTORY.md, SCREEN-FLOW.md, and IMPLEMENTATION-READY-BRIEF.md. Check existing user-approved decisions and discrepancies before changing them.
+4. For a new target or when project mapping is needed, inspect focused project memory: .ai/project/DESIGN-SYSTEM.md, .ai/project/CORE-CONFIGURATION.md, .ai/project/UI-FLOWS.md, .ai/project/RESOURCE-ROUTING.md, pubspec.yaml, and only the relevant source/asset directories. Do not repeatedly scan the repository.
+5. Identify the target’s relationship to documented screens from file/page/frame hierarchy and the existing flow. If that relationship is not exposed, record it as unresolved instead of inferring it.
 
-### Routing Protocol
-```
-User provides Figma file URL (+ exact node ID when available)
-        │
-        ▼
-Antigravity extracts the original URL's node-id and normalizes its exact ID
-        │
-        ▼
-Antigravity delegates to Codex with:
-  • original Figma file URL
-  • exact normalized node ID
-  • list of inspection items (see checklist below)
-        │
-        ▼
-Codex uses its verified Figma MCP connection (read-only by default) to retrieve
-metadata and design context for the exact target node
-        │
-        ▼
-Codex returns structured design context to Antigravity
-        │
-        ▼
-Antigravity owns project mapping, implementation, validation, and final approval
-```
+## Figma MCP inspection sequence
 
-### Required Figma Context
-Before implementation, Codex returns the available target context in a
-structured form, including:
-- Hierarchy and component structure
-- Dimensions and constraints
-- Layout direction and alignment
-- Padding, margins, and gaps
-- Typography: family, weight, size, line height, and letter spacing
-- Colors, opacity, borders, corner radii, and shadows
-- Icons, images, illustrations, and other asset references
-- Interactive states
-- Responsive behavior and constraints
-- Relevant variables and reusable components, when available
+Use the configured official Figma MCP as the design source of truth. Inspect available tool schemas rather than assuming every server exposes the same operations.
 
-### Asset Handling
-- Antigravity inspects the existing Flutter `assets/` structure first and
-  identifies the assets required by the target design.
-- Reuse matching project assets when possible. Before adding an asset, check for
-  duplicates and avoid blind downloads.
-- Download only assets that are required for the implementation. Do not
-  download assets automatically or speculatively.
-- Preserve suitable asset categories, such as icons, images, illustrations,
-  fonts, and lotties, where applicable.
-- Do not download fonts blindly; verify actual usage and need before adding one.
+Before calling a Figma tool, follow any prerequisite skills declared by that tool's
+description. For this configured Figma MCP, load its figma-design-to-code guidance before
+calling get_design_context, and follow its screenshot and logging requirements. Read-only
+inspection does not require or authorize Figma write tools.
 
-### Handoff and Validation
-Keep work modular and progressive: Codex returns only the requested target's
-structured context, and Antigravity remains responsible for project decisions
-and implementation. The end-to-end handoff is:
+1. Read metadata for the exact target node to establish its name, type, bounds, and available descendant structure.
+2. Request design context for the target and its screenshot when supported. If context does not include a screenshot and one is useful, request it with the screenshot tool.
+3. Inspect relevant descendants—nested frames, groups, components, instances, text nodes, and visible asset layers. Use returned node IDs to request focused child contexts when the root result omits properties needed for the specification. Batch independent child requests where supported; do not re-fetch the whole file.
+4. Inspect available variables, styles, component definitions, variants, and prototype/interaction data using the MCP tools that exist in this session. Record when a data category is unavailable or absent from the returned result; do not imply it was inspected.
+5. Compare structured node properties with screenshots. Structured properties take precedence for exact values. Use screenshots as visual evidence and label screenshot-derived measurements as estimates.
 
-`Figma → Codex/Figma MCP → structured design context → Antigravity → Flutter implementation → runtime validation → Figma comparison → fixes → final validation`
+### Extraction checklist
 
-For UI fidelity, Antigravity implements from the extracted Figma data, runs the
-Flutter app, and captures or inspects the runtime result. Compare it with Figma
-for structure, dimensions, typography, spacing, colors, assets, RTL, interactive
-states, and responsiveness. Fix discrepancies and repeat the runtime comparison
-until validated, then perform final validation. Never claim “pixel-perfect”
-fidelity without runtime-versus-Figma comparison evidence.
+For every exposed target and relevant descendant, record the applicable properties:
 
-### Failure and Recovery
-- Missing Figma URL: ask the user for the URL.
-- Missing or ambiguous target node: ask the user for the exact target; do not
-  guess a node ID.
-- Figma access failure: report the actual MCP failure and do not invent design
-  data.
-- MCP unavailable: document that it is unavailable and use the existing manual
-  design-spec or screenshot fallback. Clearly distinguish fallback information
-  from inspected Figma context.
-- Never claim successful Figma inspection without evidence from the MCP result.
+- **Identity and hierarchy:** file URL/key, node ID, layer/frame name and type, parent/child relationships, component/instance/source relationships, variants and variant properties.
+- **Frame and layout:** bounds, positions, dimensions, constraints, layout direction, alignment, justification, Auto Layout, gap, padding, wrap, sizing modes (fixed/fill/hug or equivalent), clipping, scrolling, fixed positioning, and responsive constraints.
+- **Appearance:** fills and exact HEX/RGBA where available; opacity; gradients/stops; strokes/borders; radii; shadows, blur, and effects.
+- **Text:** exact content including script, punctuation, tashkeel, and line breaks; family, style/weight, size, line height, tracking, paragraph spacing, alignment, decoration, fill/opacity, truncation, and exposed wrapping/overflow properties.
+- **Assets:** image fills and crop/position, raster/vector identity, icon/logo/illustration references, export settings/scale/format, component-provided visuals, and whether a matching local asset exists.
+- **Behavior:** prototype destination, trigger, overlay, state/variant, and transitions when exposed. Separate observed interactions from business logic that cannot be inferred from a design.
 
-### Safety
-- Figma inspection is **read-only by default**. Never modify Figma unless the
-  user explicitly authorizes it.
-- Do not introduce architecture, state-management, provider, dependency, MCP, or
-  external-service changes through this workflow. Keep implementation within
-  the existing project architecture and master workflow.
+Capture only exposed values. A missing field is Not exposed or Unknown, not a default value.
 
-## Figma Inspection Checklist
-Extract from Figma before writing any code:
+## Asset and project safety
 
-- [ ] Component hierarchy and structure
-- [ ] Typography: font family, weight, size, line height, letter spacing
-- [ ] Colors: fills, strokes, opacity
-- [ ] Spacing: padding, margins, gaps
-- [ ] Dimensions: width, height, constraints
-- [ ] Alignment and layout direction
-- [ ] Border radius
-- [ ] Borders and strokes
-- [ ] Shadows and elevation
-- [ ] Gradients
-- [ ] Icons and image assets
-- [ ] Interactive states (default, hover, pressed, disabled, selected)
-- [ ] Responsive behavior and breakpoints
-- [ ] Relevant variables and reusable components, when available
+1. Inspect existing local assets before recommending an export. Compare content and dimensions where needed; filenames alone do not establish identity.
+2. Update ASSET-INVENTORY.md with source node/layer, local path (or missing status), actual format/dimensions when verified, export details when exposed, match confidence, and recommended destination only when relevant.
+3. Do not download, rename, move, overwrite, or create assets merely because a Figma URL was provided. Asset export is a filesystem modification; do it only when explicitly requested. Never replace an existing project asset without explicit authorization.
+4. Do not edit Flutter source, navigation, pubspec.yaml, dependencies, app behavior, or Figma content during analysis/specification work.
 
-## Implementation Flow
-1. **Inspect Figma** — Extract all structured design data for the target screen/component.
-2. **Map to Core** — Match Figma values to existing AppColors, AppTextStyles, core widgets.
-3. **Identify gaps** — Note any design tokens or components not yet in Core.
-4. **Plan** — Define file structure. Decide if Core needs extension (approval gate).
-5. **Implement** — Build the UI using extracted values. Never guess values available in Figma.
-6. **Run app** — Render the screen on device/emulator.
-7. **Compare** — Visually compare rendered UI against Figma.
-8. **Fix discrepancies** — Iterate until structure, spacing, typography, and colors match.
-9. **Validate** — Run static analysis. Update checkpoint.
+## Evidence labels and discrepancy handling
 
-## UI Fidelity Priority
-1. Structure / layout hierarchy
-2. Dimensions (width, height)
-3. Typography (font, size, weight, line height)
-4. Spacing (padding, margins)
-5. Colors
-6. Icons and images
-7. Borders and radius
-8. Shadows and gradients
-9. States and interactions
-10. Responsiveness
+Use explicit provenance labels throughout specifications:
 
-## Rules
-- Figma is the UI source of truth. Do not override Figma measurements with assumptions.
-- Use `AppColors` and `AppTextStyles`. If Figma introduces a new token, propose adding
-  it to the design system (with approval if it changes Core).
-- Use real project assets from `assets/`. Do not invent placeholder replacements.
-- Never claim "pixel perfect" without visual comparison evidence.
-- If Figma MCP is unavailable, document this clearly and proceed with best-effort
-  implementation using any available design specs.
+- **Verified Figma:** exact value directly exposed by MCP for the cited node/property.
+- **User-confirmed:** value or decision explicitly supplied/approved by the user.
+- **Screenshot estimate:** visual measurement or observation from a rendered image, not an exact Figma property.
+- **Inferred / provisional:** interpretation that is plausible but not directly established.
+- **Unknown / not exposed:** unavailable from MCP, screenshot, local files, and user notes.
+
+Preserve approved wording and decisions. If new Figma data conflicts with a user-approved value or an existing specification, record both sources and the discrepancy. Do not silently overwrite the approved decision; ask only if resolving the conflict is essential to the requested outcome.
+
+## Maintaining project specifications
+
+Use .ai/project/figma-specs/ and update existing documents; do not create duplicates:
+
+- SCREEN-01-GET-STARTED.md
+- SCREEN-02-LOGIN.md
+- ASSET-INVENTORY.md
+- DESIGN-TOKENS.md
+- SCREEN-FLOW.md
+- IMPLEMENTATION-READY-BRIEF.md
+
+Update only files relevant to the target, plus shared token, asset, flow, or brief documents when the new facts affect them. A screen specification should preserve the original source URL, exact node/frame identity, hierarchy, source provenance, and a top-to-bottom implementation-ready description. Record supported values, estimates, assumptions, unresolved items, asset mappings, and behavior separately. Keep shared tokens internally consistent without copying one screen’s content into another screen’s specification.
+
+## Limits, failures, and recovery
+
+- Respect Figma permissions, quotas, and server limits. If MCP returns access denied, rate limit, quota exhaustion, timeout, or another error, report the actual message/category and stop repeated retries. Do not call a failed request again merely to see if it works.
+- Continue only with local specifications, available screenshots/assets, and user-provided evidence. Label all such fallback facts by source; do not claim Figma inspection succeeded.
+- If a screenshot or property cannot be retrieved, document exactly what is missing. Do not reconstruct a design from its URL, name, or unrelated screens.
+- Avoid redundant calls. Prefer one focused metadata/context/screenshot pass and targeted descendant/property calls only for real gaps.
+
+## Validation and response
+
+Before finishing, make one focused consistency pass against the MCP results and project documentation. Check node IDs, frame names, text exactness, dimensions, typography, colors, spacing, layer hierarchy, asset references, source labels, and unresolved conflicts. Do not claim values were extracted if absent from tool responses.
+
+Report the target node, sources/tools actually used, properties documented, asset status, exact files created or updated, unresolved properties/access limitations, and whether any implementation/configuration occurred. State clearly that no visual implementation comparison has been made unless one actually was.
+
+## Explicit implementation requests
+
+If the user explicitly requests Flutter implementation, first read the relevant project specifications and follow the existing Waheed feature-based architecture, Navigator conventions, shared widgets/tokens, and state-management rules. Do not introduce architecture, dependencies, or broad Core changes without the project-required approval. Verify the rendered requested screen against Figma before claiming fidelity. Update a specification only for a genuine discovered discrepancy and record its resolution. The user’s explicit task scope takes precedence over generic workflow defaults.

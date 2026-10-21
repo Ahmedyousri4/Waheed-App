@@ -28,8 +28,10 @@ Coordination uses **shared filesystem + checkpoint handoff**:
 - `.agents/skills/` and `.agents/rules/` are available to both.
 - Git state (branch, diff, status) is shared.
 
-The **user is the router** — they decide when to delegate a task from
-Antigravity to OpenCode and vice versa.
+The **user is the router** for switching Antigravity/OpenCode implementation work.
+For Figma analysis, a Figma URL or node URL sent directly to Codex automatically
+activates `.agents/skills/ai-figma-feature/SKILL.md`; no separate detailed prompt or
+Antigravity handoff is required. This does not authorize UI implementation.
 
 ### Verification Evidence
 - OpenCode Desktop verified with BigPickle model in `G:\projects\waheed`.
@@ -62,8 +64,10 @@ Mechanical transformations   → OpenCode + BigPickle (user-mediated)
 Normal Flutter feature       → Antigravity (primary)
                                Codex (Figma inspection if design-driven)
 
-Figma inspection             → Codex (via Figma MCP)
-                               Antigravity orchestrates + implements
+Figma URL/node analysis      → Codex automatically via ai-figma-feature
+                               update existing project specifications
+Figma implementation        → Antigravity (only when explicitly requested)
+                               Codex provides Figma inspection as needed
 
 Complex feature / bug        → Antigravity (high-reasoning)
                                AshnaAI (when available)

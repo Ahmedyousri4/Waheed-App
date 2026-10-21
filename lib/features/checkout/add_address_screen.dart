@@ -223,24 +223,25 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
             ),
             elevation: 0,
           ),
-          child: _isSubmitting
-              ? const SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    color: Colors.white,
+          child:
+              _isSubmitting
+                  ? const SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: Colors.white,
+                    ),
+                  )
+                  : const Text(
+                    'حفظ العنوان',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Inter',
+                      color: Colors.white,
+                    ),
                   ),
-                )
-              : const Text(
-                  'حفظ العنوان',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Inter',
-                    color: Colors.white,
-                  ),
-                ),
         ),
       ),
     );

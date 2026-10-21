@@ -19,10 +19,7 @@ class PaymentSheetResult {
   /// The (possibly updated) list of cards — may include newly added ones.
   final List<PaymentCard> cards;
 
-  const PaymentSheetResult({
-    required this.selectedCard,
-    required this.cards,
-  });
+  const PaymentSheetResult({required this.selectedCard, required this.cards});
 }
 
 // ──────────────────────────────────────────────────────────────────
@@ -44,10 +41,9 @@ Future<PaymentSheetResult?> showPaymentMethodSheet(
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     useSafeArea: true,
-    builder: (_) => _PaymentMethodSheet(
-      cards: cards,
-      selectedCardId: selectedCardId,
-    ),
+    builder:
+        (_) =>
+            _PaymentMethodSheet(cards: cards, selectedCardId: selectedCardId),
   );
 }
 
@@ -59,10 +55,7 @@ class _PaymentMethodSheet extends StatefulWidget {
   final List<PaymentCard> cards;
   final String? selectedCardId;
 
-  const _PaymentMethodSheet({
-    required this.cards,
-    this.selectedCardId,
-  });
+  const _PaymentMethodSheet({required this.cards, this.selectedCardId});
 
   @override
   State<_PaymentMethodSheet> createState() => _PaymentMethodSheetState();
@@ -163,10 +156,7 @@ class _PaymentMethodSheetState extends State<_PaymentMethodSheet> {
           const SizedBox(height: 12),
 
           // ── Add new card ──
-          DashedAddButton(
-            label: '+ إضافة كارت جديد',
-            onTap: _onAddCard,
-          ),
+          DashedAddButton(label: '+ إضافة كارت جديد', onTap: _onAddCard),
           const SizedBox(height: 20),
 
           // ── Save button ──

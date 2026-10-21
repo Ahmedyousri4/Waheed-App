@@ -6,17 +6,17 @@ enum CardBrand {
 
   /// Arabic display name for the brand.
   String get displayName => switch (this) {
-        CardBrand.visa => 'فيزا',
-        CardBrand.mastercard => 'ماستر كارد',
-        CardBrand.unknown => 'بطاقة',
-      };
+    CardBrand.visa => 'فيزا',
+    CardBrand.mastercard => 'ماستر كارد',
+    CardBrand.unknown => 'بطاقة',
+  };
 
   /// SVG asset file name for the brand logo.
   String get svgAsset => switch (this) {
-        CardBrand.visa => 'visaelectron.svg',
-        CardBrand.mastercard => 'mastercard.svg',
-        CardBrand.unknown => 'card.svg',
-      };
+    CardBrand.visa => 'visaelectron.svg',
+    CardBrand.mastercard => 'mastercard.svg',
+    CardBrand.unknown => 'card.svg',
+  };
 }
 
 /// Represents a saved payment card.

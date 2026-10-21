@@ -14,6 +14,7 @@ import 'package:waheed/features/checkout/widgets/payment_method_section.dart';
 import 'package:waheed/features/checkout/widgets/order_summary_section.dart';
 import 'package:waheed/features/checkout/widgets/pickup_details_section.dart';
 import 'package:waheed/features/checkout/order_review_screen.dart';
+import 'package:waheed/features/checkout/pickup_scheduling_screen.dart';
 import 'package:waheed/features/checkout/widgets/checkout_bottom_bar.dart';
 
 /// Checkout / إتمام الطلب screen.
@@ -124,30 +125,48 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           content: Text(error, textAlign: TextAlign.center),
           backgroundColor: AppColors.error,
           behavior: SnackBarBehavior.floating,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
       );
       return;
     }
 
-    // Navigate to Order Review instead of submitting directly.
+    // Branch pickup schedules an appointment first (Figma 3526:5940).
+    // Selecting a fulfillment method only toggles inline details; this
+    // bottom action is the single entry point into the pickup flow.
+    // The confirmation CTA on that screen is inert, so this path ends
+    // there until the future تأكيد الطلب node is approved.
+    if (_receivingMethod == ReceivingMethod.pickupFromBranch) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => PickupSchedulingScreen(branch: _selectedBranch),
+        ),
+      );
+      return;
+    }
+
+    // Home delivery: navigate to Order Review instead of submitting
+    // directly. Existing behavior is unchanged.
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => OrderReviewScreen(
-          args: OrderReviewArgs(
-            receivingMethod: _receivingMethod,
-            address: _selectedAddress,
-            deliveryMethod: _deliveryMethod,
-            paymentMethod: _paymentMethod,
-            selectedCard: _selectedCard,
-            subtotal: _subtotal(items),
-            deliveryFee: _deliveryFee,
-            discount: _discount,
-            total: _total(items),
-          ),
-        ),
+        builder:
+            (_) => OrderReviewScreen(
+              args: OrderReviewArgs(
+                receivingMethod: _receivingMethod,
+                address: _selectedAddress,
+                deliveryMethod: _deliveryMethod,
+                paymentMethod: _paymentMethod,
+                selectedCard: _selectedCard,
+                subtotal: _subtotal(items),
+                deliveryFee: _deliveryFee,
+                discount: _discount,
+                total: _total(items),
+              ),
+            ),
       ),
     );
   }
@@ -166,29 +185,29 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 16,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ReceivingMethodSection(
                         selected: _receivingMethod,
-                        onChanged: (m) =>
-                            setState(() => _receivingMethod = m),
+                        onChanged: (m) => setState(() => _receivingMethod = m),
                       ),
                       const SizedBox(height: 20),
                       if (_receivingMethod ==
                           ReceivingMethod.deliveryToHome) ...[
                         DeliveryAddressSection(
                           selectedAddress: _selectedAddress,
-                          onAddressSelected: (addr) =>
-                              setState(() => _selectedAddress = addr),
+                          onAddressSelected:
+                              (addr) => setState(() => _selectedAddress = addr),
                         ),
                         const SizedBox(height: 20),
                         DeliveryMethodSection(
                           selected: _deliveryMethod,
-                          onChanged: (m) =>
-                              setState(() => _deliveryMethod = m),
+                          onChanged: (m) => setState(() => _deliveryMethod = m),
                           standardPrice: _standardDeliveryFee,
                           expressPrice: _expressDeliveryFee,
                         ),
@@ -199,12 +218,12 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       ],
                       PaymentMethodSection(
                         selected: _paymentMethod,
-                        onChanged: (m) =>
-                            setState(() => _paymentMethod = m),
+                        onChanged: (m) => setState(() => _paymentMethod = m),
                         onCreditCardTap: _openPaymentSheet,
-                        creditCardSubtitle: _selectedCard != null
-                            ? '${_selectedCard!.brand.displayName} •••• ${_selectedCard!.last4}'
-                            : null,
+                        creditCardSubtitle:
+                            _selectedCard != null
+                                ? '${_selectedCard!.brand.displayName} •••• ${_selectedCard!.last4}'
+                                : null,
                       ),
                       const SizedBox(height: 20),
                       OrderSummarySection(
@@ -221,8 +240,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               CheckoutBottomBar(
                 total: _total(cartItems),
                 isSubmitting: false,
-                onCheckout:
-                    _canSubmit ? () => _onSubmitOrder(cartItems) : null,
+                onCheckout: _canSubmit ? () => _onSubmitOrder(cartItems) : null,
               ),
             ],
           ),
