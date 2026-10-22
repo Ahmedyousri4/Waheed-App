@@ -43,7 +43,6 @@ class BookingDetailsCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Branch row
           _buildRow(
             icon: 'store.svg',
             iconColor: const Color(0xFF1E3A8A),
@@ -54,8 +53,6 @@ class BookingDetailsCard extends StatelessWidget {
             subtitleStyle: BookingConfirmationStyles.detailSubtitle,
           ),
           _buildDashedDivider(),
-
-          // Pickup appointment row
           _buildRow(
             icon: 'calendar.svg',
             iconColor: const Color(0xFF1E3A8A),
@@ -66,8 +63,6 @@ class BookingDetailsCard extends StatelessWidget {
             subtitleStyle: BookingConfirmationStyles.detailSubtitle,
           ),
           _buildDashedDivider(),
-
-          // Tailoring status row
           _buildRow(
             icon: 'scissors.svg',
             iconColor: BookingConfirmationStyles.goldAccent,
@@ -95,7 +90,6 @@ class BookingDetailsCard extends StatelessWidget {
       textDirection: TextDirection.ltr,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Squircle icon tile on physical left
         Container(
           width: 40,
           height: 40,
@@ -113,7 +107,6 @@ class BookingDetailsCard extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 12),
-        // Text column on physical right with RTL Arabic text right-aligned
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

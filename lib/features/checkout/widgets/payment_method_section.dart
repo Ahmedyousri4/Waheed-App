@@ -3,23 +3,14 @@ import 'package:waheed/app/theme/app_colors.dart';
 import 'package:waheed/core/widgets/app_image.dart';
 import 'package:waheed/features/checkout/widgets/checkout_section_header.dart';
 
-/// Payment method options.
 enum PaymentMethod { cashOnDelivery, creditCard }
 
-/// Displays the "طريقة الدفع" section with selectable payment cards.
-///
-/// Tapping **cash on delivery** calls [onChanged] directly.
-/// Tapping **credit card** always calls [onCreditCardTap] to open the
-/// card-selection sheet, even if credit card is already selected.
 class PaymentMethodSection extends StatelessWidget {
   final PaymentMethod selected;
   final ValueChanged<PaymentMethod> onChanged;
 
-  /// Called when the credit-card tile is tapped — should open Sheet 1.
   final VoidCallback onCreditCardTap;
 
-  /// Override subtitle for the credit-card tile once a card is committed
-  /// (e.g. "ماستر كارد •••• 4242"). Falls back to the default when `null`.
   final String? creditCardSubtitle;
 
   const PaymentMethodSection({
@@ -57,7 +48,6 @@ class PaymentMethodSection extends StatelessWidget {
   }
 }
 
-/// Individual selectable payment-method card.
 class _PaymentMethodCard extends StatelessWidget {
   final String icon;
   final String title;
@@ -90,7 +80,6 @@ class _PaymentMethodCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Selection radio
             Container(
               height: 20,
               width: 20,
@@ -116,7 +105,6 @@ class _PaymentMethodCard extends StatelessWidget {
                       : null,
             ),
             const SizedBox(width: 12),
-            // Icon container
             Container(
               height: 40,
               width: 40,
@@ -134,7 +122,6 @@ class _PaymentMethodCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-            // Info
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

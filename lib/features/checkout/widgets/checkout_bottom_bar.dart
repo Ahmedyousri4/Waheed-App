@@ -38,7 +38,6 @@ class CheckoutBottomBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Checkout button
           Expanded(
             child: ElevatedButton(
               onPressed: isSubmitting ? null : onCheckout,
@@ -73,7 +72,6 @@ class CheckoutBottomBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 16),
-          // Price column
           Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.end,

@@ -25,7 +25,6 @@ class BookingConfirmationHeader extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.hardEdge,
         children: [
-          // Upper-right decorative gold circle (176×176, 15% opacity)
           Positioned(
             right: -40,
             top: -40,
@@ -40,7 +39,6 @@ class BookingConfirmationHeader extends StatelessWidget {
               ),
             ),
           ),
-          // Lower-left decorative gold circle (176×176, 10% opacity)
           Positioned(
             left: -40,
             bottom: -40,
@@ -55,7 +53,6 @@ class BookingConfirmationHeader extends StatelessWidget {
               ),
             ),
           ),
-          // Centered content
           SafeArea(
             bottom: false,
             child: Padding(
@@ -64,7 +61,6 @@ class BookingConfirmationHeader extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Gold circular emblem with white checkmark
                     Container(
                       width: 80,
                       height: 80,

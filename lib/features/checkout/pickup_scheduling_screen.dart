@@ -155,8 +155,6 @@ class _PickupSchedulingScreenState extends State<PickupSchedulingScreen> {
 
   static const List<BoxShadow> _ctaShadow = ChooseAppointmentStyles.ctaShadow;
 
-  // ── Build ───────────────────────────────────────────────────────────
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -293,7 +291,6 @@ class _PickupSchedulingScreenState extends State<PickupSchedulingScreen> {
       ),
       child: Row(
         children: [
-          // Icon tile sits on the right in RTL (Figma `3526:6087`).
           Container(
             height: 40,
             width: 40,

@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:waheed/app/theme/app_colors.dart';
 import 'package:waheed/features/checkout/widgets/checkout_section_header.dart';
 
-/// Delivery method options.
 enum DeliveryMethod { standard, express }
 
-/// Displays the "طريقة التوصيل" section with selectable delivery cards.
 class DeliveryMethodSection extends StatelessWidget {
   final DeliveryMethod selected;
   final ValueChanged<DeliveryMethod> onChanged;
@@ -51,7 +49,6 @@ class DeliveryMethodSection extends StatelessWidget {
   }
 }
 
-/// Individual selectable delivery-method card.
 class _DeliveryMethodCard extends StatelessWidget {
   final String title;
   final String duration;
@@ -86,7 +83,6 @@ class _DeliveryMethodCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Selection radio
             Container(
               height: 20,
               width: 20,
@@ -112,7 +108,6 @@ class _DeliveryMethodCard extends StatelessWidget {
                       : null,
             ),
             const SizedBox(width: 12),
-            // Info
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -164,7 +159,6 @@ class _DeliveryMethodCard extends StatelessWidget {
                 ],
               ),
             ),
-            // Price
             Text(
               price,
               style: const TextStyle(

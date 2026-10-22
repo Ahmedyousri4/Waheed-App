@@ -41,12 +41,10 @@ class BookingCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Order number and copy action row
           Row(
             textDirection: TextDirection.ltr,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Copy button (on physical left)
               GestureDetector(
                 onTap: () => _onCopy(context),
                 behavior: HitTestBehavior.opaque,
@@ -65,7 +63,6 @@ class BookingCard extends StatelessWidget {
                   ],
                 ),
               ),
-              // Order details (on physical right)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -86,8 +83,6 @@ class BookingCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-
-          // QR presentation surface
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
@@ -98,8 +93,6 @@ class BookingCard extends StatelessWidget {
             child: const Center(child: BookingConfirmationQrVisual()),
           ),
           const SizedBox(height: 12),
-
-          // Instruction caption (miniature QR icon on physical left, text on physical right)
           Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,

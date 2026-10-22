@@ -105,8 +105,6 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
     });
   }
 
-  // ── Build ───────────────────────────────────────────────────────
-
   @override
   Widget build(BuildContext context) {
     final args = widget.args;
@@ -123,11 +121,9 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 1. Receiving method (read-only)
                   _ReviewReceivingMethod(receivingMethod: args.receivingMethod),
                   const SizedBox(height: 20),
 
-                  // 2a. Delivery address (home delivery)
                   if (args.receivingMethod ==
                       ReceivingMethod.deliveryToHome) ...[
                     _ReviewAddressCard(
@@ -137,7 +133,6 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
                     const SizedBox(height: 20),
                   ],
 
-                  // 2b. Pickup details (branch)
                   if (args.receivingMethod ==
                           ReceivingMethod.pickupFromBranch &&
                       args.branch != null) ...[
@@ -145,7 +140,6 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
                     const SizedBox(height: 20),
                   ],
 
-                  // 3. Order summary (expandable)
                   _ReviewOrderSummary(
                     isExpanded: _isSummaryExpanded,
                     onToggle:
@@ -163,7 +157,6 @@ class _OrderReviewScreenState extends State<OrderReviewScreen> {
             ),
           ),
 
-          // Bottom bar
           _ReviewBottomBar(
             total: args.total,
             isSubmitting: _isSubmitting,
@@ -437,7 +430,6 @@ class _ReviewOrderSummary extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // ── Header (always visible) ──
           GestureDetector(
             onTap: onToggle,
             behavior: HitTestBehavior.opaque,
@@ -464,7 +456,6 @@ class _ReviewOrderSummary extends StatelessWidget {
             ),
           ),
 
-          // ── Expanded content ──
           AnimatedCrossFade(
             duration: const Duration(milliseconds: 250),
             crossFadeState:
@@ -487,7 +478,6 @@ class _ReviewOrderSummary extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           child: Column(
             children: [
-              // ── Cart items ──
               ...cartItems.map((item) {
                 final qty = item['quantity'] as int;
                 final price = (item['price'] as num).toDouble();
@@ -498,7 +488,6 @@ class _ReviewOrderSummary extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Row(
                     children: [
-                      // Line total
                       Text(
                         '${lineTotal.toStringAsFixed(0)} ج.م',
                         style: const TextStyle(
@@ -509,7 +498,6 @@ class _ReviewOrderSummary extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      // Quantity badge
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,
@@ -530,7 +518,6 @@ class _ReviewOrderSummary extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      // Name
                       Flexible(
                         child: Text(
                           name,
@@ -550,7 +537,6 @@ class _ReviewOrderSummary extends StatelessWidget {
 
               const SizedBox(height: 8),
 
-              // ── Dashed divider ──
               LayoutBuilder(
                 builder: (context, constraints) {
                   const dash = 6.0, gap = 4.0;
@@ -573,7 +559,6 @@ class _ReviewOrderSummary extends StatelessWidget {
 
               const SizedBox(height: 12),
 
-              // ── Summary rows ──
               _SummaryRow(
                 label: 'المجموع الفرعي',
                 value: '${subtotal.toStringAsFixed(0)} ج.م',
@@ -594,7 +579,6 @@ class _ReviewOrderSummary extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              // ── Total row ──
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -693,7 +677,6 @@ class _ReviewBottomBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Confirm button
           Expanded(
             child: ElevatedButton.icon(
               onPressed: isSubmitting ? null : onConfirm,
@@ -736,7 +719,6 @@ class _ReviewBottomBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 16),
-          // Price column
           Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.end,

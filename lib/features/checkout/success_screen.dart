@@ -49,7 +49,7 @@ class SuccessScreen extends StatelessWidget {
     fontFamily: _fontFamily,
     fontSize: 24,
     fontWeight: FontWeight.bold,
-    height: 36 / 24, // line height 36 px
+    height: 36 / 24,
     color: _headingColor,
   );
 
@@ -86,8 +86,6 @@ class SuccessScreen extends StatelessWidget {
     color: color,
   );
 
-  // ── Build ──────────────────────────────────────────────────────────
-
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -98,22 +96,16 @@ class SuccessScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Stack(
           children: [
-            // ── Decorative circles ───────────────────────────────────
             _buildUpperDecoration(),
             _buildLowerDecoration(),
-
-            // ── Main content + bottom actions ────────────────────────
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
                     const Spacer(flex: 3),
-                    // ── Emblem ────────────────────────────────────────
                     const SuccessEmblem(),
                     const SizedBox(height: 24),
-
-                    // ── Heading ──────────────────────────────────────
                     Text(
                       'تم تأكيد طلبك بنجاح',
                       style: _headingStyle(),
@@ -121,8 +113,6 @@ class SuccessScreen extends StatelessWidget {
                       textDirection: TextDirection.rtl,
                     ),
                     const SizedBox(height: 8),
-
-                    // ── Supporting copy ──────────────────────────────
                     Text(
                       'شكراً لاختيارك متجرنا. سنرسل لك إشعاراً عند شحن طلبك',
                       style: _bodyStyle(),
@@ -130,13 +120,8 @@ class SuccessScreen extends StatelessWidget {
                       textDirection: TextDirection.rtl,
                     ),
                     const SizedBox(height: 32),
-
-                    // ── Order information card ──────────────────────
                     _buildOrderCard(),
-
                     const Spacer(flex: 4),
-
-                    // ── Bottom actions ───────────────────────────────
                     _buildTrackOrderButton(),
                     const SizedBox(height: 8),
                     _buildReturnHomeButton(context),
@@ -150,8 +135,6 @@ class SuccessScreen extends StatelessWidget {
       ),
     );
   }
-
-  // ── Decorative circles ─────────────────────────────────────────────
 
   /// Upper-right navy circle (Figma: 256×256, x 224.8, y -80).
   Widget _buildUpperDecoration() {
@@ -185,24 +168,21 @@ class SuccessScreen extends StatelessWidget {
     );
   }
 
-  // ── Order information card ─────────────────────────────────────────
-
   Widget _buildOrderCard() {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: AppColors.surfaceSubtle, // #F8FAFC — exact match
+        color: AppColors.surfaceSubtle,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: AppColors.surfaceLight, // #F1F5F9 — exact match
+          color: AppColors.surfaceLight,
           width: 0.8,
         ),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // ── Order label ────────────────────────────────────────────
           Text(
             'رقم الطلب',
             style: _labelStyle(),
@@ -210,16 +190,12 @@ class SuccessScreen extends StatelessWidget {
             textDirection: TextDirection.rtl,
           ),
           const SizedBox(height: 4),
-
-          // ── Order number ───────────────────────────────────────────
           Text(
             orderNumber,
             style: _orderNumberStyle(),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 12),
-
-          // ── Dashed divider ─────────────────────────────────────────
           LayoutBuilder(
             builder: (context, constraints) {
               const double dash = 6;
@@ -233,7 +209,7 @@ class SuccessScreen extends StatelessWidget {
                     child: Container(
                       width: dash,
                       height: 0.8,
-                      color: AppColors.divider, // #E2E8F0 — exact match
+                      color: AppColors.divider,
                     ),
                   ),
                 ),
@@ -241,8 +217,6 @@ class SuccessScreen extends StatelessWidget {
             },
           ),
           const SizedBox(height: 12),
-
-          // ── Delivery estimate row ──────────────────────────────────
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -259,8 +233,6 @@ class SuccessScreen extends StatelessWidget {
       ),
     );
   }
-
-  // ── Bottom action buttons ──────────────────────────────────────────
 
   /// Primary "Track Order" button — rendered per Figma spec but
   /// functionally inactive. No tracking screen exists yet.

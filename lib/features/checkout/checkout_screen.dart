@@ -171,7 +171,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     );
   }
 
-  // ── Build ──────────────────────────────────────────────────────────
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<List<Map<String, dynamic>>>(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:waheed/app/theme/app_colors.dart';
 import 'package:waheed/features/checkout/widgets/checkout_section_header.dart';
 
-/// Displays the "ملخص الطلب" section with pricing rows.
 class OrderSummarySection extends StatelessWidget {
   final double subtotal;
   final double deliveryFee;
@@ -56,7 +55,6 @@ class OrderSummarySection extends StatelessWidget {
             value: discount > 0 ? '${discount.toStringAsFixed(0)} ج.م' : '—',
           ),
           const SizedBox(height: 12),
-          // Dashed divider (matching cart_screen pattern)
           LayoutBuilder(
             builder: (context, constraints) {
               const dash = 6.0, gap = 4.0;
@@ -106,7 +104,6 @@ class OrderSummarySection extends StatelessWidget {
   }
 }
 
-/// Single pricing row in the order summary.
 class _OrderSummaryRow extends StatelessWidget {
   final String label;
   final String value;

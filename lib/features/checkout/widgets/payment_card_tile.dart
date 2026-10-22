@@ -3,11 +3,6 @@ import 'package:waheed/app/theme/app_colors.dart';
 import 'package:waheed/core/widgets/app_image.dart';
 import 'package:waheed/features/checkout/models/payment_card.dart';
 
-/// Single-selection card tile used inside Sheet 1.
-///
-/// Displays the brand SVG in a rounded gray square at the start,
-/// card title + "ينتهي بـ" subtitle, and a radio indicator at the end.
-/// Selected state: dark border + filled dark circle with white check.
 class PaymentCardTile extends StatelessWidget {
   final PaymentCard card;
   final bool isSelected;
@@ -37,7 +32,6 @@ class PaymentCardTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // ── Brand icon ──
             Container(
               height: 40,
               width: 40,
@@ -54,8 +48,6 @@ class PaymentCardTile extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-
-            // ── Card info ──
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,8 +73,6 @@ class PaymentCardTile extends StatelessWidget {
                 ],
               ),
             ),
-
-            // ── Radio indicator ──
             _buildRadio(),
           ],
         ),

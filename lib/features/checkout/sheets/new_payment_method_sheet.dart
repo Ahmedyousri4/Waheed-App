@@ -25,10 +25,6 @@ Future<PaymentCard?> showNewPaymentMethodSheet(BuildContext context) {
   );
 }
 
-// ──────────────────────────────────────────────────────────────────
-// Sheet content
-// ──────────────────────────────────────────────────────────────────
-
 class _NewPaymentMethodSheet extends StatefulWidget {
   const _NewPaymentMethodSheet();
 
@@ -53,8 +49,6 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
     super.dispose();
   }
 
-  // ── Save logic ──────────────────────────────────────────────────
-
   void _onSave() {
     if (!_formKey.currentState!.validate()) return;
 
@@ -74,8 +68,6 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
 
     Navigator.pop(context, card);
   }
-
-  // ── Build ───────────────────────────────────────────────────────
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +101,6 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // ── Holder name ──
                   _buildLabel('اسم حامل الكارت'),
                   const SizedBox(height: 8),
                   AppTextField(
@@ -118,8 +109,6 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
                     validator: validateHolderName,
                   ),
                   const SizedBox(height: 16),
-
-                  // ── Card number ──
                   _buildLabel('رقم الكارت'),
                   const SizedBox(height: 8),
                   AppTextField(
@@ -139,8 +128,6 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
                     validator: validateCardNumber,
                   ),
                   const SizedBox(height: 16),
-
-                  // ── CVV (start / right in RTL) + Expiry (end / left) ──
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -188,8 +175,6 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
                     ],
                   ),
                   const SizedBox(height: 16),
-
-                  // ── Save-for-future checkbox ──
                   GestureDetector(
                     onTap:
                         () => setState(() => _saveForFuture = !_saveForFuture),
@@ -237,8 +222,6 @@ class _NewPaymentMethodSheetState extends State<_NewPaymentMethodSheet> {
                     ),
                   ),
                   const SizedBox(height: 20),
-
-                  // ── Save button ──
                   PrimaryButton(label: 'حفظ', onPressed: _onSave),
                 ],
               ),

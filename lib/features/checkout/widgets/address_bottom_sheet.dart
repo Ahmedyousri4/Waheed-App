@@ -29,7 +29,6 @@ class AddressBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // ── Handle bar ──
           Container(
             width: 40,
             height: 4,
@@ -39,8 +38,6 @@ class AddressBottomSheet extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-
-          // ── Header ──
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -65,8 +62,6 @@ class AddressBottomSheet extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-
-          // ── Section title ──
           Row(
             children: [
               const AppImage(image: 'location.svg', height: 20, width: 20),
@@ -83,18 +78,10 @@ class AddressBottomSheet extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 14),
-
-          // ── Saved address card ──
           if (currentAddress != null) _buildAddressCard(currentAddress!),
-
           const SizedBox(height: 12),
-
-          // ── Add new address ──
           _buildAddNewButton(context),
-
           const SizedBox(height: 20),
-
-          // ── Confirm button ──
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
@@ -148,7 +135,6 @@ class AddressBottomSheet extends StatelessWidget {
         children: [
           Row(
             children: [
-              // Default badge
               if (address.isDefault)
                 Container(
                   padding: const EdgeInsets.symmetric(
@@ -170,7 +156,6 @@ class AddressBottomSheet extends StatelessWidget {
                   ),
                 ),
               const Spacer(),
-              // Label
               Text(
                 address.label,
                 style: const TextStyle(
@@ -181,7 +166,6 @@ class AddressBottomSheet extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              // Home icon
               const Icon(Icons.home_outlined, size: 22, color: AppColors.navy),
             ],
           ),

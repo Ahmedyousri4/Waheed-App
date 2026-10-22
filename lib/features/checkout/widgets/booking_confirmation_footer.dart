@@ -31,7 +31,6 @@ class BookingConfirmationFooter extends StatelessWidget {
         child: Row(
           textDirection: TextDirection.ltr,
           children: [
-            // Left button: "تتبع الطلب" — rendered per Figma spec, functionally inert
             Expanded(
               child: Semantics(
                 button: true,
@@ -67,7 +66,6 @@ class BookingConfirmationFooter extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-            // Right button: "الرئيسية" — returns to HomeScreen
             Expanded(
               child: SizedBox(
                 height: 56,

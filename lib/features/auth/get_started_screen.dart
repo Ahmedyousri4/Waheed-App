@@ -30,7 +30,6 @@ class GetStartedScreen extends StatelessWidget {
       backgroundColor: AuthStyles.black,
       body: Stack(
         children: [
-          // Background portrait photograph
           Positioned.fill(
             child: Image.asset(
               'assets/images/background.jpg',
@@ -38,11 +37,7 @@ class GetStartedScreen extends StatelessWidget {
               alignment: Alignment.topCenter,
             ),
           ),
-
-          // Mood darkening overlay
           Positioned.fill(child: Container(color: AuthStyles.photoOverlay)),
-
-          // Bottom content panel
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -66,31 +61,24 @@ class GetStartedScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // Screen Title
                       const Text(
                         titleText,
                         textAlign: TextAlign.center,
                         style: AuthStyles.title,
                       ),
                       const SizedBox(height: 12),
-
-                      // Screen Subtitle
                       const Text(
                         subtitleText,
                         textAlign: TextAlign.center,
                         style: AuthStyles.subtitle,
                       ),
                       const SizedBox(height: 12),
-
-                      // Documented Description
                       const Text(
                         descriptionText,
                         textAlign: TextAlign.right,
                         style: AuthStyles.description,
                       ),
                       const SizedBox(height: 24),
-
-                      // Primary CTA Button
                       Material(
                         key: const Key('get_started_button'),
                         color: AuthStyles.black,

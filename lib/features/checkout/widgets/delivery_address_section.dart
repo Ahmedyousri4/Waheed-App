@@ -5,9 +5,6 @@ import 'package:waheed/features/checkout/models/address_model.dart';
 import 'package:waheed/features/checkout/widgets/address_bottom_sheet.dart';
 import 'package:waheed/features/checkout/widgets/checkout_section_header.dart';
 
-/// Displays the "عنوان التوصيل" section in the checkout screen.
-///
-/// Tapping opens a bottom sheet to view/add addresses.
 class DeliveryAddressSection extends StatelessWidget {
   final AddressModel? selectedAddress;
   final ValueChanged<AddressModel> onAddressSelected;
@@ -96,11 +93,9 @@ class DeliveryAddressSection extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // ── Row: house icon + المنزل + افتراضي badge ──
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                // افتراضي badge
                 if (selectedAddress!.isDefault)
                   Container(
                     padding: const EdgeInsets.symmetric(
@@ -122,7 +117,6 @@ class DeliveryAddressSection extends StatelessWidget {
                     ),
                   ),
                 const SizedBox(width: 8),
-                // المنزل label
                 Text(
                   selectedAddress!.label,
                   style: const TextStyle(
@@ -133,7 +127,6 @@ class DeliveryAddressSection extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                // House icon in circle
                 Container(
                   height: 36,
                   width: 36,
@@ -153,7 +146,6 @@ class DeliveryAddressSection extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            // ── Name + Phone ──
             Text(
               '${selectedAddress!.name} • ${selectedAddress!.phone}',
               style: const TextStyle(
@@ -163,7 +155,6 @@ class DeliveryAddressSection extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            // ── City, Area ──
             Text(
               selectedAddress!.displayAddress,
               style: const TextStyle(

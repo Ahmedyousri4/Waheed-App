@@ -105,7 +105,6 @@ class ReceivingMethodCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // "مجاناً" badge (only on pickup card when selected)
                 if (showFreeBadge && isSelected)
                   Container(
                     padding: const EdgeInsets.symmetric(
@@ -128,7 +127,6 @@ class ReceivingMethodCard extends StatelessWidget {
                   )
                 else
                   const SizedBox.shrink(),
-                // Icon container — gradient when selected, light when not
                 Container(
                   height: 40,
                   width: 40,

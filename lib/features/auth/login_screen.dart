@@ -46,7 +46,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _onLogin() {
-    // Navigate to HomeScreen using the existing imperative navigation
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (_) => const HomeScreen()),
@@ -59,7 +58,6 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AuthStyles.white,
       body: Stack(
         children: [
-          // Narrow top portrait photo strip
           SizedBox(
             height: 300,
             child: Stack(
@@ -74,8 +72,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-
-          // Main form card
           Padding(
             padding: const EdgeInsets.only(top: 200),
             child: Container(
@@ -102,24 +98,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       const SizedBox(height: 8),
-
-                      // Screen Title
                       const Text(
                         LoginScreen.titleText,
                         textAlign: TextAlign.center,
                         style: AuthStyles.title,
                       ),
                       const SizedBox(height: 8),
-
-                      // Account Creation Prompt
                       const Text(
                         LoginScreen.accountPromptText,
                         textAlign: TextAlign.center,
                         style: AuthStyles.subtitle,
                       ),
                       const SizedBox(height: 28),
-
-                      // Email Field
                       AuthTextField(
                         label: LoginScreen.emailLabel,
                         hintText: LoginScreen.emailHint,
@@ -134,8 +124,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(height: 18),
-
-                      // Password Field with Visibility Toggle
                       AuthTextField(
                         label: LoginScreen.passwordLabel,
                         hintText: LoginScreen.passwordHint,
@@ -156,8 +144,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(height: 12),
-
-                      // Forgot Password Link
                       Align(
                         alignment: Alignment.centerRight,
                         child: GestureDetector(
@@ -169,8 +155,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(height: 24),
-
-                      // Primary Login Button
                       Material(
                         key: const Key('login_button'),
                         color: AuthStyles.black,
@@ -191,8 +175,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(height: 26),
-
-                      // Divider with Caption
                       Row(
                         children: const [
                           Expanded(
@@ -217,8 +199,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                       const SizedBox(height: 24),
-
-                      // Social Buttons (Google on physical left, Apple on physical right)
                       Row(
                         textDirection: TextDirection.ltr,
                         children: [

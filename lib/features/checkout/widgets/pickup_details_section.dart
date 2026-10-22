@@ -33,7 +33,6 @@ class PickupDetailsSection extends StatelessWidget {
           ),
           child: Row(
             children: [
-              // ── Branch info ──
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -62,7 +61,6 @@ class PickupDetailsSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              // ── Branch icon ──
               Container(
                 height: 40,
                 width: 40,

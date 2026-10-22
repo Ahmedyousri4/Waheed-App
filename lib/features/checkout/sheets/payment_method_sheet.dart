@@ -7,10 +7,6 @@ import 'package:waheed/features/checkout/widgets/payment_card_tile.dart';
 import 'package:waheed/features/checkout/widgets/primary_button.dart';
 import 'package:waheed/features/checkout/widgets/sheet_header.dart';
 
-// ──────────────────────────────────────────────────────────────────
-// Result
-// ──────────────────────────────────────────────────────────────────
-
 /// Returned when the user confirms a card selection in Sheet 1.
 class PaymentSheetResult {
   /// The card the user committed to.
@@ -21,10 +17,6 @@ class PaymentSheetResult {
 
   const PaymentSheetResult({required this.selectedCard, required this.cards});
 }
-
-// ──────────────────────────────────────────────────────────────────
-// Helper
-// ──────────────────────────────────────────────────────────────────
 
 /// Opens Sheet 1 — the "طريقة الدفع" saved-card picker.
 ///
@@ -47,10 +39,6 @@ Future<PaymentSheetResult?> showPaymentMethodSheet(
   );
 }
 
-// ──────────────────────────────────────────────────────────────────
-// Sheet content
-// ──────────────────────────────────────────────────────────────────
-
 class _PaymentMethodSheet extends StatefulWidget {
   final List<PaymentCard> cards;
   final String? selectedCardId;
@@ -72,14 +60,12 @@ class _PaymentMethodSheetState extends State<_PaymentMethodSheet> {
     _draftCardId = widget.selectedCardId ?? _cards.firstOrNull?.id;
   }
 
-  // ── Callbacks ───────────────────────────────────────────────────
-
   Future<void> _onAddCard() async {
     final newCard = await showNewPaymentMethodSheet(context);
     if (newCard != null && mounted) {
       setState(() {
         _cards.add(newCard);
-        _draftCardId = newCard.id; // auto-select the new card
+        _draftCardId = newCard.id;
       });
     }
   }
@@ -92,8 +78,6 @@ class _PaymentMethodSheetState extends State<_PaymentMethodSheet> {
       PaymentSheetResult(selectedCard: selectedCard, cards: _cards),
     );
   }
-
-  // ── Build ───────────────────────────────────────────────────────
 
   @override
   Widget build(BuildContext context) {
@@ -117,8 +101,6 @@ class _PaymentMethodSheetState extends State<_PaymentMethodSheet> {
             onClose: () => Navigator.pop(context),
           ),
           const SizedBox(height: 20),
-
-          // ── Section title ──
           const Text(
             'الكروت المحفوظة',
             style: TextStyle(
@@ -138,8 +120,6 @@ class _PaymentMethodSheetState extends State<_PaymentMethodSheet> {
             ),
           ),
           const SizedBox(height: 16),
-
-          // ── Card tiles ──
           ...List.generate(_cards.length, (index) {
             final card = _cards[index];
             return Padding(
@@ -154,12 +134,8 @@ class _PaymentMethodSheetState extends State<_PaymentMethodSheet> {
             );
           }),
           const SizedBox(height: 12),
-
-          // ── Add new card ──
           DashedAddButton(label: '+ إضافة كارت جديد', onTap: _onAddCard),
           const SizedBox(height: 20),
-
-          // ── Save button ──
           PrimaryButton(
             label: 'حفظ',
             onPressed: _draftCardId != null ? _onSave : null,

@@ -66,7 +66,6 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
 
     setState(() => _isSubmitting = true);
 
-    // Build AddressModel to return to Checkout.
     final addressModel = AddressModel(
       name: _nameController.text.trim(),
       phone: _phoneController.text.trim(),
@@ -82,7 +81,6 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
     });
   }
 
-  // ── Build ──────────────────────────────────────────────────────────
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,7 +95,6 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // ── الاسم الكامل ──
                   AddressTextField(
                     label: 'الاسم الكامل',
                     hint: 'أدخل اسمك الكامل',
@@ -106,8 +103,6 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     errorText: _errors['name'],
                   ),
                   const SizedBox(height: 18),
-
-                  // ── المدينة + المنطقة ──
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -131,8 +126,6 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     ],
                   ),
                   const SizedBox(height: 18),
-
-                  // ── رقم الهاتف ──
                   AddressTextField(
                     label: 'رقم الهاتف',
                     hint: '01xxxxxxxxx',
@@ -142,8 +135,6 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                     errorText: _errors['phone'],
                   ),
                   const SizedBox(height: 18),
-
-                  // ── العنوان بالتفصيل ──
                   AddressTextField(
                     label: 'العنوان بالتفصيل',
                     hint: 'الشارع، رقم المبنى، علامة مميزة',
