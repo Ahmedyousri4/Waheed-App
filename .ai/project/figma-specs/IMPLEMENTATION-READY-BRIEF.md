@@ -89,3 +89,19 @@ that does not map to a shared style, Screen 02 frame dimensions and actual node 
 all interaction states/destinations. Shared typography values and the Login title/account
 prompt assignments are user-confirmed; other Login element styles remain unresolved. Compare
 rendered implementation with Figma before making any visual-fidelity claim.
+
+## Screen 03 — Sign Up
+
+- [Screen 03 — Sign Up](SCREEN-03-SIGN-UP.md), target node `549:8455`, frame `إنشاء حساب`, 402 × 947 px. Current detailed geometry is extracted from the supplied Flutter Figma-to-Code export; it has not been independently rechecked through Figma MCP.
+- The local asset map is verified from existing files: background `assets/images/background.jpg`; profile `profilee.svg`; call `call.svg`; email `email.svg`; eye states `eyeoff.svg` / `eye.svg`; Google `googel.svg`; Apple `appel.svg`. See `ASSET-INVENTORY.md` for exact paths, dimensions and SVG evidence. No assets were exported or modified.
+- The full screen specification and Antigravity implementation prompt are in `SCREEN-03-SIGN-UP.md` and `../../state/antigravity-sign-up-implementation-prompt.md`; the handoff is ready for UI implementation.
+- Existing `AuthTextField` and `SocialLoginButton` are suitable starting points, but their default field/button height and input padding differ. Add scoped configurability or small feature-local variants while preserving Login defaults. Existing Cairo is the font fallback; IBM Plex Sans Arabic is not registered, and no font/dependency change is authorized.
+- Keep registration backend, provider authentication, and successful-submit destination unresolved; wire local form input/validation and Login navigation only. The supplied export and earlier context disagree about home-indicator position; the spec records both and requires render comparison if Figma becomes available.
+- Figma MCP Starter-plan limit prevented a fresh Figma comparison. Do not describe values as independently Figma-verified; compare the Antigravity render against a live Figma render if access is restored.
+---
+
+## Selection addendum - root 472:6759
+
+Readiness: partial extraction archive; not ready for implementation. Read SELECTION-MASTER-INDEX.md, all eight SELECTION-SCREEN specifications, SCREEN-FLOW.md, DESIGN-TOKENS.md, ASSET-INVENTORY.md, COMPONENT-INVENTORY.md, and EXTRACTION-COVERAGE-REPORT.md.
+
+Next preparation: restore Figma access; review all eight screenshots; inspect text/style/layout properties, variables, component definitions, prototypes, and exports in focused batches; map assets against local files; resolve missing legal content and deletion-state behavior. After extraction, implement only when expressly authorized, in dependency-aware order derived from verified flow, and validate incrementally against each screen. Preserve the existing feature architecture, imperative navigation, AppImage API, and 300-line source limit.

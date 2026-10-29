@@ -9,7 +9,7 @@
 3. **Architecture**: Feature-based, no Clean Architecture layers.
 4. **DI**: None — do not introduce without approval.
 5. **Repository pattern**: Used only in checkout/payment. Do not force elsewhere.
-6. **File size**: 400-line target. Extract only when it improves maintainability.
+6. **File size**: Strict 300-line target. Extract when it improves maintainability and keep every file <= 300 lines.
 7. **Core changes**: Require awareness; global impact must be stated.
 
 ## Rationale

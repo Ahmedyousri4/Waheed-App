@@ -1,0 +1,33 @@
+{
+    "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+    "sourceRootNode":  "472:6759",
+    "nodeId":  "1070:4185",
+    "screenName":  "Delete success state",
+    "specification":  "../../SELECTION-SCREEN-04-DELETE-SUCCESS.md",
+    "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+    "categoryStatus":  {
+                           "text_and_typography":  "partial",
+                           "prototype_and_navigation":  "blocked",
+                           "colors_and_tokens":  "partial",
+                           "visual_verification":  "not_started",
+                           "structure":  "partial",
+                           "icons_and_vectors":  "partial",
+                           "components":  "partial",
+                           "flutter_asset_mapping":  "partial",
+                           "screenshots":  "blocked",
+                           "layout_and_spacing":  "partial",
+                           "images_and_assets":  "blocked"
+                       },
+    "historicalRawPayloadAvailable":  false,
+    "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+    "figmaName":  "تم الحذف ",
+    "parentNodeId":  "472:6759",
+    "canvasPosition":  {
+                           "x":  3159,
+                           "y":  100
+                       },
+    "frameSize":  {
+                      "width":  402,
+                      "height":  874
+                  }
+}

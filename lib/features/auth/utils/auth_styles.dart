@@ -20,6 +20,16 @@ abstract final class AuthStyles {
   static const Color border = Color(0xFFECECEC);
   static const Color divider = Color(0xFFE2E8F0);
   static const Color photoOverlay = Color(0x59000000); // 35% black overlay
+  static const Color photoOverlay70 = Color(0xB3000000); // 70% black overlay
+  static const Color fieldBorder = Color(
+    0xFFEAEAEA,
+  ); // Screen 03 border #EAEAEA
+  static const Color fieldHintGray = Color(
+    0xFF929292,
+  ); // Screen 03 hint #929292
+  static const Color navyLink = Color(0xFF314158); // Screen 03 link #314158
+  static const Color googleText = Color(0xFF0A0A0A); // Screen 03 Google label
+  static const Color error = Color(0xFFDC2626); // Validation error color
 
   // ── User-Confirmed Shared Typography ──────────────────────────────
 
@@ -116,5 +126,75 @@ abstract final class AuthStyles {
     fontWeight: FontWeight.w500,
     height: 1.2,
     color: black,
+  );
+
+  // ── Screen 03 (Sign Up) Typography ────────────────────────────────
+
+  /// Account prompt link: 14px, 500 Medium, #314158.
+  static const TextStyle accountPromptLink = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    height: 22.82 / 14,
+    color: navyLink,
+  );
+
+  /// Sign Up field label: 14px, 400 Regular, black, right-aligned.
+  static const TextStyle signUpFieldLabel = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    height: 22.82 / 14,
+    color: black,
+  );
+
+  /// Sign Up field hint: 14px, 400 Regular, #929292.
+  static const TextStyle signUpFieldHint = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: fieldHintGray,
+  );
+
+  /// Sign Up primary CTA button: 14px, 500 Medium, white, centered.
+  static const TextStyle signUpCtaButton = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: white,
+  );
+
+  /// Sign Up divider caption: 11.5px, 400 Regular, #929292.
+  static const TextStyle signUpDividerCaption = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 11.5,
+    fontWeight: FontWeight.normal,
+    height: 17.25 / 11.5,
+    color: fieldHintGray,
+  );
+
+  /// Google provider button label: 13px, 400 Regular, #0A0A0A.
+  static const TextStyle googleButtonLabel = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 13,
+    fontWeight: FontWeight.normal,
+    height: 19.5 / 13,
+    color: googleText,
+  );
+
+  /// Apple provider button label: 13px, 400 Regular, black.
+  static const TextStyle appleButtonLabel = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 13,
+    fontWeight: FontWeight.normal,
+    color: black,
+  );
+
+  /// Field error label: 11px, 400 Regular, error color.
+  static const TextStyle fieldError = TextStyle(
+    fontFamily: fontFamily,
+    fontSize: 11,
+    fontWeight: FontWeight.normal,
+    color: error,
   );
 }

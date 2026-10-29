@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:waheed/features/auth/sign_up_screen.dart';
 import 'package:waheed/features/auth/utils/auth_styles.dart';
 import 'package:waheed/features/auth/widgets/auth_text_field.dart';
 import 'package:waheed/features/auth/widgets/social_login_button.dart';
@@ -49,6 +50,13 @@ class _LoginScreenState extends State<LoginScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (_) => const HomeScreen()),
+    );
+  }
+
+  void _onNavigateToSignUp() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const SignUpScreen()),
     );
   }
 
@@ -104,12 +112,28 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: AuthStyles.title,
                       ),
                       const SizedBox(height: 8),
-                      const Text(
-                        LoginScreen.accountPromptText,
-                        textAlign: TextAlign.center,
-                        style: AuthStyles.subtitle,
+                      GestureDetector(
+                        key: const Key('account_prompt_link'),
+                        onTap: _onNavigateToSignUp,
+                        behavior: HitTestBehavior.opaque,
+                        child: Text.rich(
+                          TextSpan(
+                            children: const [
+                              TextSpan(
+                                text: 'ليس لديك حساب ؟ ',
+                                style: AuthStyles.subtitle,
+                              ),
+                              TextSpan(
+                                text: 'إنشاء حساب جديد',
+                                style: AuthStyles.accountPromptLink,
+                              ),
+                            ],
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       const SizedBox(height: 28),
+
                       AuthTextField(
                         label: LoginScreen.emailLabel,
                         hintText: LoginScreen.emailHint,

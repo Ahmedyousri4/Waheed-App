@@ -120,3 +120,6 @@ Screen 01 specifically, confirm whether radius `44` applies to the outer frame o
 selection, and confirm image crop/overlay and the authoritative copy. For Screen 02, obtain
 exact frame geometry, input/button dimensions, radii, colors, and `FIXED`/`SCROLLS` node
 assignments.
+## Figma selection 472:6759 - token addendum
+
+Returned design-context output names IBM Plex Sans Arabic and includes styles described as Title2 Bold 20 px/700, Body1 Medium 16 px/500, Body1 Regular 16 px/400, and Body2 Regular 14 px/400; line height 100% and letter spacing 0. Context also lists #1B1B1B, #FFFFFF, #EEEEEE, and background-blur radius 48. These are context-level values, not complete per-layer bindings or Figma variable IDs. See SELECTION-MASTER-INDEX.md for scope. IBM Plex Sans Arabic is not registered in pubspec.yaml; existing project documentation identifies Cairo as fallback. Do not treat current Flutter theme values as matching Figma tokens without evidence.

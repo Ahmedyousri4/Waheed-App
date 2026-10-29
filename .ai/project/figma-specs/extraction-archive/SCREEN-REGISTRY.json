@@ -1,0 +1,295 @@
+{
+    "schemaVersion":  1,
+    "source":  {
+                   "url":  "https://www.figma.com/design/OwhGcfZwmermbcH2L8rfUD/Waheed-Hassan--Copy-?node-id=472-6759\u0026t=FV85ULAHyUJcsq0M-4",
+                   "fileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                   "rootNodeId":  "472:6759",
+                   "rootName":  "الشروط والاحكام ,سياسة الخصوصية",
+                   "lastKnownExtractionDate":  "2026-10-24",
+                   "currentFigmaAccess":  "not_checked",
+                   "lastObservedAccess":  "starter_plan_tool_call_limit"
+               },
+    "screenCount":  8,
+    "screens":  [
+                    {
+                        "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                        "sourceRootNode":  "472:6759",
+                        "nodeId":  "1068:2903",
+                        "screenName":  "Signed-in account",
+                        "specification":  "../SELECTION-SCREEN-01-ACCOUNT-SIGNED-IN.md",
+                        "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+                        "categoryStatus":  {
+                                               "text_and_typography":  "partial",
+                                               "prototype_and_navigation":  "blocked",
+                                               "colors_and_tokens":  "partial",
+                                               "visual_verification":  "not_started",
+                                               "structure":  "partial",
+                                               "icons_and_vectors":  "partial",
+                                               "components":  "partial",
+                                               "flutter_asset_mapping":  "partial",
+                                               "screenshots":  "blocked",
+                                               "layout_and_spacing":  "partial",
+                                               "images_and_assets":  "blocked"
+                                           },
+                        "historicalRawPayloadAvailable":  false,
+                        "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+                        "status":  "partial",
+                        "figmaName":  "الحساب - مستخدم",
+                        "parentNodeId":  "472:6759",
+                        "canvasPosition":  {
+                                               "x":  1410,
+                                               "y":  100
+                                           },
+                        "frameSize":  {
+                                          "width":  402,
+                                          "height":  1106
+                                      },
+                        "evidenceFile":  "../SELECTION-SCREEN-01-ACCOUNT-SIGNED-IN.md"
+                    },
+                    {
+                        "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                        "sourceRootNode":  "472:6759",
+                        "nodeId":  "1068:2733",
+                        "screenName":  "Delete confirmation overlay",
+                        "specification":  "../SELECTION-SCREEN-02-DELETE-CONFIRMATION.md",
+                        "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+                        "categoryStatus":  {
+                                               "text_and_typography":  "partial",
+                                               "prototype_and_navigation":  "blocked",
+                                               "colors_and_tokens":  "partial",
+                                               "visual_verification":  "not_started",
+                                               "structure":  "partial",
+                                               "icons_and_vectors":  "partial",
+                                               "components":  "partial",
+                                               "flutter_asset_mapping":  "partial",
+                                               "screenshots":  "partial",
+                                               "layout_and_spacing":  "partial",
+                                               "images_and_assets":  "blocked"
+                                           },
+                        "historicalRawPayloadAvailable":  false,
+                        "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+                        "status":  "partial",
+                        "figmaName":  "تأكيد الحذف",
+                        "parentNodeId":  "472:6759",
+                        "canvasPosition":  {
+                                               "x":  2275,
+                                               "y":  100
+                                           },
+                        "frameSize":  {
+                                          "width":  402,
+                                          "height":  874
+                                      },
+                        "evidenceFile":  "../SELECTION-SCREEN-02-DELETE-CONFIRMATION.md"
+                    },
+                    {
+                        "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                        "sourceRootNode":  "472:6759",
+                        "nodeId":  "1070:3983",
+                        "screenName":  "Identity confirmation",
+                        "specification":  "../SELECTION-SCREEN-03-IDENTITY-CONFIRMATION.md",
+                        "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+                        "categoryStatus":  {
+                                               "text_and_typography":  "partial",
+                                               "prototype_and_navigation":  "blocked",
+                                               "colors_and_tokens":  "partial",
+                                               "visual_verification":  "not_started",
+                                               "structure":  "partial",
+                                               "icons_and_vectors":  "partial",
+                                               "components":  "partial",
+                                               "flutter_asset_mapping":  "partial",
+                                               "screenshots":  "partial",
+                                               "layout_and_spacing":  "partial",
+                                               "images_and_assets":  "blocked"
+                                           },
+                        "historicalRawPayloadAvailable":  false,
+                        "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+                        "status":  "partial",
+                        "figmaName":  "تأكيد الهوية ",
+                        "parentNodeId":  "472:6759",
+                        "canvasPosition":  {
+                                               "x":  2717,
+                                               "y":  100
+                                           },
+                        "frameSize":  {
+                                          "width":  402,
+                                          "height":  874
+                                      },
+                        "evidenceFile":  "../SELECTION-SCREEN-03-IDENTITY-CONFIRMATION.md"
+                    },
+                    {
+                        "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                        "sourceRootNode":  "472:6759",
+                        "nodeId":  "1070:4185",
+                        "screenName":  "Delete success state",
+                        "specification":  "../SELECTION-SCREEN-04-DELETE-SUCCESS.md",
+                        "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+                        "categoryStatus":  {
+                                               "text_and_typography":  "partial",
+                                               "prototype_and_navigation":  "blocked",
+                                               "colors_and_tokens":  "partial",
+                                               "visual_verification":  "not_started",
+                                               "structure":  "partial",
+                                               "icons_and_vectors":  "partial",
+                                               "components":  "partial",
+                                               "flutter_asset_mapping":  "partial",
+                                               "screenshots":  "blocked",
+                                               "layout_and_spacing":  "partial",
+                                               "images_and_assets":  "blocked"
+                                           },
+                        "historicalRawPayloadAvailable":  false,
+                        "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+                        "status":  "partial",
+                        "figmaName":  "تم الحذف ",
+                        "parentNodeId":  "472:6759",
+                        "canvasPosition":  {
+                                               "x":  3159,
+                                               "y":  100
+                                           },
+                        "frameSize":  {
+                                          "width":  402,
+                                          "height":  874
+                                      },
+                        "evidenceFile":  "../SELECTION-SCREEN-04-DELETE-SUCCESS.md"
+                    },
+                    {
+                        "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                        "sourceRootNode":  "472:6759",
+                        "nodeId":  "498:3926",
+                        "screenName":  "Guest account",
+                        "specification":  "../SELECTION-SCREEN-05-GUEST-ACCOUNT.md",
+                        "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+                        "categoryStatus":  {
+                                               "text_and_typography":  "partial",
+                                               "prototype_and_navigation":  "blocked",
+                                               "colors_and_tokens":  "partial",
+                                               "visual_verification":  "not_started",
+                                               "structure":  "partial",
+                                               "icons_and_vectors":  "partial",
+                                               "components":  "partial",
+                                               "flutter_asset_mapping":  "partial",
+                                               "screenshots":  "partial",
+                                               "layout_and_spacing":  "partial",
+                                               "images_and_assets":  "blocked"
+                                           },
+                        "historicalRawPayloadAvailable":  false,
+                        "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+                        "status":  "partial",
+                        "figmaName":  "الحساب - زائر",
+                        "parentNodeId":  "472:6759",
+                        "canvasPosition":  {
+                                               "x":  968,
+                                               "y":  100
+                                           },
+                        "frameSize":  {
+                                          "width":  402,
+                                          "height":  884
+                                      },
+                        "evidenceFile":  "../SELECTION-SCREEN-05-GUEST-ACCOUNT.md"
+                    },
+                    {
+                        "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                        "sourceRootNode":  "472:6759",
+                        "nodeId":  "472:6621",
+                        "screenName":  "Terms and conditions",
+                        "specification":  "../SELECTION-SCREEN-06-TERMS.md",
+                        "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+                        "categoryStatus":  {
+                                               "text_and_typography":  "partial",
+                                               "prototype_and_navigation":  "blocked",
+                                               "colors_and_tokens":  "partial",
+                                               "visual_verification":  "not_started",
+                                               "structure":  "partial",
+                                               "icons_and_vectors":  "partial",
+                                               "components":  "partial",
+                                               "flutter_asset_mapping":  "partial",
+                                               "screenshots":  "blocked",
+                                               "layout_and_spacing":  "partial",
+                                               "images_and_assets":  "blocked"
+                                           },
+                        "historicalRawPayloadAvailable":  false,
+                        "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+                        "status":  "partial",
+                        "figmaName":  "الشروط والاحكام",
+                        "parentNodeId":  "472:6759",
+                        "canvasPosition":  {
+                                               "x":  100,
+                                               "y":  100
+                                           },
+                        "frameSize":  {
+                                          "width":  402,
+                                          "height":  884
+                                      },
+                        "evidenceFile":  "../SELECTION-SCREEN-06-TERMS.md"
+                    },
+                    {
+                        "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                        "sourceRootNode":  "472:6759",
+                        "nodeId":  "472:6644",
+                        "screenName":  "Privacy policy",
+                        "specification":  "../SELECTION-SCREEN-07-PRIVACY.md",
+                        "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+                        "categoryStatus":  {
+                                               "text_and_typography":  "partial",
+                                               "prototype_and_navigation":  "blocked",
+                                               "colors_and_tokens":  "partial",
+                                               "visual_verification":  "not_started",
+                                               "structure":  "partial",
+                                               "icons_and_vectors":  "partial",
+                                               "components":  "partial",
+                                               "flutter_asset_mapping":  "partial",
+                                               "screenshots":  "blocked",
+                                               "layout_and_spacing":  "partial",
+                                               "images_and_assets":  "blocked"
+                                           },
+                        "historicalRawPayloadAvailable":  false,
+                        "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+                        "status":  "partial",
+                        "figmaName":  "سياسة الخصوصية",
+                        "parentNodeId":  "472:6759",
+                        "canvasPosition":  {
+                                               "x":  534,
+                                               "y":  100
+                                           },
+                        "frameSize":  {
+                                          "width":  402,
+                                          "height":  884
+                                      },
+                        "evidenceFile":  "../SELECTION-SCREEN-07-PRIVACY.md"
+                    },
+                    {
+                        "sourceFileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                        "sourceRootNode":  "472:6759",
+                        "nodeId":  "1068:3293",
+                        "screenName":  "Delete warning sheet",
+                        "specification":  "../SELECTION-SCREEN-08-DELETE-WARNING.md",
+                        "evidenceClassification":  "Verified Figma values only where explicitly stated in the linked spec; other missing properties remain unknown.",
+                        "categoryStatus":  {
+                                               "text_and_typography":  "partial",
+                                               "prototype_and_navigation":  "blocked",
+                                               "colors_and_tokens":  "partial",
+                                               "visual_verification":  "not_started",
+                                               "structure":  "partial",
+                                               "icons_and_vectors":  "partial",
+                                               "components":  "partial",
+                                               "flutter_asset_mapping":  "partial",
+                                               "screenshots":  "blocked",
+                                               "layout_and_spacing":  "partial",
+                                               "images_and_assets":  "blocked"
+                                           },
+                        "historicalRawPayloadAvailable":  false,
+                        "notes":  "See linked screen specification and EXTRACTION-COVERAGE-REPORT.md. Full raw MCP response was not saved as a project file.",
+                        "status":  "partial",
+                        "figmaName":  "تحذير",
+                        "parentNodeId":  "472:6759",
+                        "canvasPosition":  {
+                                               "x":  1848,
+                                               "y":  100
+                                           },
+                        "frameSize":  {
+                                          "width":  402,
+                                          "height":  450
+                                      },
+                        "evidenceFile":  "../SELECTION-SCREEN-08-DELETE-WARNING.md"
+                    }
+                ]
+}

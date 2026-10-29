@@ -133,3 +133,8 @@ Active resources:
 
 All project work can proceed with these resources. AshnaAI and Chrome DevTools
 MCP are optional future additions, not blockers.
+
+### Multi-screen Figma handoff
+When a task targets multiple frames or a selected Figma section, invoke `.agents/skills/ai-figma-feature/SKILL.md`. Screen inventory, individual specifications, verified flow, assets, tokens, components, and handoff status belong in `.ai/project/figma-specs/`; recover the latest position from `.ai/state/LAST-CHECKPOINT.md` first.
+
+For resumable Figma extraction, also read `.ai/project/figma-specs/extraction-archive/EXTRACTION-STATE.json`, `SCREEN-REGISTRY.json`, `ASSET-REGISTRY.json`, and `EXTRACTION-SESSION-LOG.md`. These are the durable category-level progress and resume records; consult the linked screen specs for evidence and details.

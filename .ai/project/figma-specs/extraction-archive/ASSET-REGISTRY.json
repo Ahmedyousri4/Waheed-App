@@ -1,0 +1,106 @@
+{
+    "schemaVersion":  1,
+    "assetCount":  9,
+    "scope":  "Selection-relevant existing candidates and specifically observed unresolved illustration/vector nodes; broader project asset inventory remains in ../ASSET-INVENTORY.md.",
+    "assets":  [
+                   {
+                       "asset":  "Back arrow candidate",
+                       "localPath":  "assets/icons/arrowleft.svg",
+                       "figmaNodeIds":  [
+                                            "472:6626",
+                                            "472:6649",
+                                            "498:3931",
+                                            "1068:2998"
+                                        ],
+                       "mappingStatus":  "unverified_candidate",
+                       "format":  "SVG",
+                       "notes":  "Filename exists; exact visual/content match to these Figma instances not verified."
+                   },
+                   {
+                       "asset":  "Cart candidate",
+                       "localPath":  "assets/icons/shoppingcart.svg",
+                       "figmaNodeIds":  [
+                                            "472:6623",
+                                            "472:6646",
+                                            "498:3928",
+                                            "1068:2995"
+                                        ],
+                       "mappingStatus":  "unverified_candidate",
+                       "format":  "SVG",
+                       "notes":  "Filename exists; some cart instances may be transparent/hidden; verify screenshot and icon match."
+                   },
+                   {
+                       "asset":  "Profile icon candidate",
+                       "localPath":  "assets/icons/profile.svg",
+                       "figmaNodeIds":  [
+                                            "1068:2920"
+                                        ],
+                       "mappingStatus":  "unverified_candidate",
+                       "format":  "SVG",
+                       "notes":  "Candidate only; node instance uses component profile."
+                   },
+                   {
+                       "asset":  "Box/orders icon candidate",
+                       "localPath":  "assets/icons/box.svg",
+                       "figmaNodeIds":  [
+                                            "1068:2946"
+                                        ],
+                       "mappingStatus":  "unverified_candidate",
+                       "format":  "SVG",
+                       "notes":  "Candidate only."
+                   },
+                   {
+                       "asset":  "Favorites icon",
+                       "localPath":  null,
+                       "figmaNodeIds":  [
+                                            "1068:2940"
+                                        ],
+                       "mappingStatus":  "missing_or_unverified",
+                       "format":  "SVG",
+                       "notes":  "No heart.svg candidate exists in the inspected local asset listing; do not substitute similar.svg without visual verification."
+                   },
+                   {
+                       "asset":  "Legal terms vector",
+                       "localPath":  null,
+                       "figmaNodeIds":  [
+                                            "3526:2151",
+                                            "1068:2963"
+                                        ],
+                       "mappingStatus":  "missing_or_unexported",
+                       "format":  "Figma vector; export unknown",
+                       "notes":  "Do not fabricate. Export/match after MCP access returns."
+                   },
+                   {
+                       "asset":  "Privacy vector",
+                       "localPath":  null,
+                       "figmaNodeIds":  [
+                                            "3526:2147",
+                                            "1068:2968"
+                                        ],
+                       "mappingStatus":  "missing_or_unexported",
+                       "format":  "Figma vector; export unknown",
+                       "notes":  "Do not fabricate. Export/match after MCP access returns."
+                   },
+                   {
+                       "asset":  "Delete warning illustration",
+                       "localPath":  null,
+                       "figmaNodeIds":  [
+                                            "1068:2839",
+                                            "1068:3299"
+                                        ],
+                       "mappingStatus":  "missing_or_unexported",
+                       "format":  "Figma vector; export unknown",
+                       "notes":  "Warning icon containers; exact mapping/export needs inspection."
+                   },
+                   {
+                       "asset":  "Delete success illustration",
+                       "localPath":  null,
+                       "figmaNodeIds":  [
+                                            "1070:4400"
+                                        ],
+                       "mappingStatus":  "missing_or_unexported",
+                       "format":  "Figma vector; export unknown",
+                       "notes":  "Success artwork; no local match verified."
+                   }
+               ]
+}

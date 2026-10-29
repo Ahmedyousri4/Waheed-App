@@ -45,3 +45,28 @@ No files were downloaded, copied, renamed, or altered. No Flutter call sites hav
 implemented or verified. The SVG logos/icons match the reference visually by their paths
 and appearance, but exact Figma component/node IDs, export scale, and production usage remain
 unknown.
+
+## Screen 03 — Sign Up (Figma node `549:8455`)
+
+The local mappings below were checked against the actual files. The supplied Flutter export
+uses empty `Stack()` placeholders for visual assets; therefore local type/content/existence
+is verified, while exact Figma-node byte matching is not claimed. No assets were downloaded,
+copied, or modified. The background path is required by the task and is already used by the
+Get Started and Login auth screens.
+
+| UI location / local evidence | Exact local path | Status and notes |
+|---|---|---|---|
+| Full-frame background | `assets/images/background.jpg` | Exists; JPEG, 900 × 1350 px, 140,225 bytes. Use behind 70% black overlay. Same image is already used by Get Started/Login. |
+| Full-name profile icon | `assets/icons/profilee.svg` | Exists; SVG, 20 × 20 viewBox, 712 bytes, `#939393` profile outline. Requested Sign Up icon. Distinct from preserved `assets/icons/profile.svg` (24 × 24, `#919191`). |
+| Phone handset | `assets/icons/call.svg` | Exists; SVG, 20 × 20 viewBox, 1,908 bytes, `#939393` handset outline. Suitable color/style for the Sign Up phone field. |
+| Alternate phone icon | `assets/icons/phone.svg` | Exists; SVG, 20 × 20 viewBox, 1,890 bytes, handset outline with `#858585` stroke. Exists but not selected; use `call.svg` to match the auth gray. |
+| Phone separator | Flutter-drawn 26 × 1 px line | No image asset required. Use `#EAEAEA` and rotate 1.57 rad as in export. |
+| Email field | `assets/icons/email.svg` | Exists; SVG, 20 × 20 viewBox, 1,233 bytes, envelope paths `#939393`. |
+| Hidden/visible password controls | `assets/icons/eyeoff.svg`, `assets/icons/eye.svg` | Both exist; SVG, 20 × 20 viewBox; eye/eye-slash strokes `#939393`. |
+| Google provider button | `assets/icons/googel.svg` | Exists; SVG, 17 × 17 viewBox, 1,108 bytes, Google brand colors. Preserve filename spelling. |
+| Apple provider button | `assets/icons/appel.svg` | Exists; SVG, 14 × 17 viewBox, 1,160 bytes, black Apple mark. Preserve filename spelling; place within 20 × 20 slot without changing intrinsic size. |
+
+The local SVG contents and intended visual roles are verified. Since the supplied Figma-to-Code export emits empty SVG `Stack()` placeholders and no fresh Figma asset export was possible, exact Figma-node export identity remains unverified. The earlier MCP Starter-plan limit remains a limitation on renewed Figma inspection; it does not prevent implementation using these requested, existing local files. No Screen 03 assets were exported or changed.
+## Figma selection 472:6759 - asset audit addendum
+
+No asset file was downloaded or exported for this selection. Design-context output included temporary Figma asset references for SVG/vector content; the Starter-plan call limit blocked export follow-up. Do not use temporary URLs as application references. Existing local icon files are candidates only; no exact match from these nodes is verified. Identified visual roles include avatar, cart, back arrow, account-menu symbols, warning/delete artwork, and legal-page vector artwork. The number of distinct exportable source assets is not recoverable from the saved project records. Exact local paths, Figma layer mapping, image dimensions, export format, and destination remain pending.

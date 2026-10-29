@@ -1,0 +1,176 @@
+{
+    "schemaVersion":  1,
+    "lastUpdated":  "2026-10-26",
+    "source":  {
+                   "url":  "https://www.figma.com/design/OwhGcfZwmermbcH2L8rfUD/Waheed-Hassan--Copy-?node-id=472-6759\u0026t=FV85ULAHyUJcsq0M-4",
+                   "fileKey":  "OwhGcfZwmermbcH2L8rfUD",
+                   "rootNodeId":  "472:6759",
+                   "lastKnownRootName":  "الشروط والاحكام ,سياسة الخصوصية",
+                   "lastKnownMcpAccess":  "starter_plan_tool_call_limit_on_2026-10-24",
+                   "currentMcpAccess":  "not_checked",
+                   "sourceChangeCheck":  "not_performed"
+               },
+    "overallStatus":  "partial",
+    "screenDiscovery":  {
+                            "knownDirectScreenLikeFrames":  8,
+                            "discoveryCompleteness":  "partial",
+                            "fullyComplete":  0,
+                            "partial":  8,
+                            "notStarted":  0,
+                            "reason":  "Eight direct frames were enumerated from returned root metadata; this does not guarantee every relevant descendant or hidden state was audited."
+                        },
+    "rawHistoricalPayloads":  {
+                                  "availableAsProjectFiles":  false,
+                                  "generatedFigmaCodePersisted":  false,
+                                  "preservedEvidence":  "Summary data captured in master index, screen specifications, and node records; see session log.",
+                                  "rawDataDirectory":  "not_created",
+                                  "reason":  "No raw metadata/design-context response files existed in the workspace. Do not fabricate raw payloads."
+                              },
+    "screens":  [
+                    {
+                        "nodeId":  "1068:2903",
+                        "status":  "partial",
+                        "specification":  "../SELECTION-SCREEN-01-ACCOUNT-SIGNED-IN.md",
+                        "categories":  {
+                                           "text_and_typography":  "partial",
+                                           "prototype_and_navigation":  "blocked",
+                                           "colors_and_tokens":  "partial",
+                                           "visual_verification":  "not_started",
+                                           "structure":  "partial",
+                                           "icons_and_vectors":  "partial",
+                                           "components":  "partial",
+                                           "flutter_asset_mapping":  "partial",
+                                           "screenshots":  "blocked",
+                                           "layout_and_spacing":  "partial",
+                                           "images_and_assets":  "blocked"
+                                       }
+                    },
+                    {
+                        "nodeId":  "1068:2733",
+                        "status":  "partial",
+                        "specification":  "../SELECTION-SCREEN-02-DELETE-CONFIRMATION.md",
+                        "categories":  {
+                                           "text_and_typography":  "partial",
+                                           "prototype_and_navigation":  "blocked",
+                                           "colors_and_tokens":  "partial",
+                                           "visual_verification":  "not_started",
+                                           "structure":  "partial",
+                                           "icons_and_vectors":  "partial",
+                                           "components":  "partial",
+                                           "flutter_asset_mapping":  "partial",
+                                           "screenshots":  "partial",
+                                           "layout_and_spacing":  "partial",
+                                           "images_and_assets":  "blocked"
+                                       }
+                    },
+                    {
+                        "nodeId":  "1070:3983",
+                        "status":  "partial",
+                        "specification":  "../SELECTION-SCREEN-03-IDENTITY-CONFIRMATION.md",
+                        "categories":  {
+                                           "text_and_typography":  "partial",
+                                           "prototype_and_navigation":  "blocked",
+                                           "colors_and_tokens":  "partial",
+                                           "visual_verification":  "not_started",
+                                           "structure":  "partial",
+                                           "icons_and_vectors":  "partial",
+                                           "components":  "partial",
+                                           "flutter_asset_mapping":  "partial",
+                                           "screenshots":  "partial",
+                                           "layout_and_spacing":  "partial",
+                                           "images_and_assets":  "blocked"
+                                       }
+                    },
+                    {
+                        "nodeId":  "1070:4185",
+                        "status":  "partial",
+                        "specification":  "../SELECTION-SCREEN-04-DELETE-SUCCESS.md",
+                        "categories":  {
+                                           "text_and_typography":  "partial",
+                                           "prototype_and_navigation":  "blocked",
+                                           "colors_and_tokens":  "partial",
+                                           "visual_verification":  "not_started",
+                                           "structure":  "partial",
+                                           "icons_and_vectors":  "partial",
+                                           "components":  "partial",
+                                           "flutter_asset_mapping":  "partial",
+                                           "screenshots":  "blocked",
+                                           "layout_and_spacing":  "partial",
+                                           "images_and_assets":  "blocked"
+                                       }
+                    },
+                    {
+                        "nodeId":  "498:3926",
+                        "status":  "partial",
+                        "specification":  "../SELECTION-SCREEN-05-GUEST-ACCOUNT.md",
+                        "categories":  {
+                                           "text_and_typography":  "partial",
+                                           "prototype_and_navigation":  "blocked",
+                                           "colors_and_tokens":  "partial",
+                                           "visual_verification":  "not_started",
+                                           "structure":  "partial",
+                                           "icons_and_vectors":  "partial",
+                                           "components":  "partial",
+                                           "flutter_asset_mapping":  "partial",
+                                           "screenshots":  "partial",
+                                           "layout_and_spacing":  "partial",
+                                           "images_and_assets":  "blocked"
+                                       }
+                    },
+                    {
+                        "nodeId":  "472:6621",
+                        "status":  "partial",
+                        "specification":  "../SELECTION-SCREEN-06-TERMS.md",
+                        "categories":  {
+                                           "text_and_typography":  "partial",
+                                           "prototype_and_navigation":  "blocked",
+                                           "colors_and_tokens":  "partial",
+                                           "visual_verification":  "not_started",
+                                           "structure":  "partial",
+                                           "icons_and_vectors":  "partial",
+                                           "components":  "partial",
+                                           "flutter_asset_mapping":  "partial",
+                                           "screenshots":  "blocked",
+                                           "layout_and_spacing":  "partial",
+                                           "images_and_assets":  "blocked"
+                                       }
+                    },
+                    {
+                        "nodeId":  "472:6644",
+                        "status":  "partial",
+                        "specification":  "../SELECTION-SCREEN-07-PRIVACY.md",
+                        "categories":  {
+                                           "text_and_typography":  "partial",
+                                           "prototype_and_navigation":  "blocked",
+                                           "colors_and_tokens":  "partial",
+                                           "visual_verification":  "not_started",
+                                           "structure":  "partial",
+                                           "icons_and_vectors":  "partial",
+                                           "components":  "partial",
+                                           "flutter_asset_mapping":  "partial",
+                                           "screenshots":  "blocked",
+                                           "layout_and_spacing":  "partial",
+                                           "images_and_assets":  "blocked"
+                                       }
+                    },
+                    {
+                        "nodeId":  "1068:3293",
+                        "status":  "partial",
+                        "specification":  "../SELECTION-SCREEN-08-DELETE-WARNING.md",
+                        "categories":  {
+                                           "text_and_typography":  "partial",
+                                           "prototype_and_navigation":  "blocked",
+                                           "colors_and_tokens":  "partial",
+                                           "visual_verification":  "not_started",
+                                           "structure":  "partial",
+                                           "icons_and_vectors":  "partial",
+                                           "components":  "partial",
+                                           "flutter_asset_mapping":  "partial",
+                                           "screenshots":  "blocked",
+                                           "layout_and_spacing":  "partial",
+                                           "images_and_assets":  "blocked"
+                                       }
+                    }
+                ],
+    "resumePoint":  "When Figma MCP access is actually available, review the five screenshot-blocked frames, visually inspect all eight screens, then extract only missing prototype/style/component/asset details in focused batches. Do not repeat root inventory or full contexts absent source-change evidence."
+}
